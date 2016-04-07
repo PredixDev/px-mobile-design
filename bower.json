@@ -1,0 +1,35 @@
+{
+  "name": "px-mobile-designs",
+  "version": "0.0.1",
+  "authors": [
+    "Jonnie Spratley <jonnie.spratley@ge.com>"
+  ],
+  "description": "A web component for px.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.build.ge.com/PredixComponents/px-mobile-designs.git"
+  },
+  "keywords": [
+    "px",
+    "px-mobile"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "latest",
+    "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
+    "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git"
+  },
+  "resolutions": {
+    "polymer": "^1.2.0"
+  }
+}

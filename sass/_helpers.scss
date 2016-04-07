@@ -1,0 +1,413 @@
+@import "variables";
+
+$margin-step: 5;
+$height-step: 25;
+$width-step: 25;
+$padding-step: 5;
+
+///Responsive visiblity
+.hidden{display:none;visibility:hidden;}
+.visible-phone{display:none !important;}
+.visible-tablet{display:none !important;}
+.hidden-desktop{display:none !important;}
+.visible-desktop{display:inherit !important;}
+
+@media (min-width:768px) and (max-width:979px){
+  .hidden-desktop{display:inherit !important;}
+  .visible-desktop{display:none !important ;}
+  .visible-tablet{display:inherit !important;}
+  .hidden-tablet{display:none !important;}}
+@media (max-width:767px){
+  .hidden-desktop{display:inherit !important;}
+  .visible-desktop{display:none !important;}
+  .visible-phone{display:inherit !important;}
+  .hidden-phone{display:none !important;}}
+
+/// Height / Width
+.full-height{
+  height: 100%;
+}
+.full-width{
+  width: 100%;
+}
+.round{
+  border-radius: 5px;
+}
+.center{
+  @include centerer();
+}
+
+///Margins
+$i: 20;
+@while $i > 0 {
+  .margin-#{$i * $margin-step} {
+    margin: ($i * $margin-step) + px !important;
+  }
+  $i: $i - 1;
+}
+
+
+///Height
+$i: 50;
+@while $i > 0 {
+  .height-#{$i * $height-step} {
+    height: ($i * $height-step) + px !important;
+  }
+  $i: $i - 1;
+}
+
+///width
+$i: 50;
+@while $i > 0 {
+  .width-#{$i * $width-step} {
+    height: ($i * $width-step) + px !important;
+  }
+  $i: $i - 1;
+}
+
+///Padding
+$i: 20;
+@while $i > 0 {
+  .padding-#{$i * $padding-step} {
+    padding: ($i * $padding-step) + px !important;
+  }
+  $i: $i - 1;
+}
+
+///Display
+$displays:none, block, inline-block, inline, flex;
+@each $display in ($displays) {
+  .display-#{$display} {
+    display: ($display) !important;
+  }
+}
+
+///Position
+@each $position in (fixed, relative, absolute, static) {
+  .position-#{$position} {
+    position: ($position) !important;
+  }
+}
+
+///z-index
+@each $z-index in (-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9999) {
+  .z-index-#{$z-index} {
+    z-index: ($z-index) !important;
+  }
+}
+
+///text-transform
+@each $position in (uppercase, lowercase, capitalize) {
+  .text-#{$position} {
+    text-transform: ($position) !important;
+  }
+}
+
+///text-align
+@each $align in (left, center, right, justify) {
+  .text-#{$align} {
+    text-align: ($align) !important;
+  }
+}
+
+///font-weight
+@each $weight in (italic, oblique, normal, bold, bolder, lighter) {
+  .font-#{$weight} {
+    font-weight: ($weight) !important;
+  }
+}
+
+///overflow
+@each $overflow in (none, auto, scroll, scroll-x, scroll-y, inherit, hidden, visible) {
+  .overflow-#{$overflow} {
+    overflow: ($overflow) !important;
+  }
+}
+
+/// Transition properties
+@each $transition in (background, color, opacity, transform, all) {
+  .transition-#{$transition} {
+    transition-property: ($transition) !important;
+  }
+}
+
+/// Cursors
+@each $cursor in (pointer, default, auto, none, not-allowed, help, progress,
+cell, wait, text, copy, move, no-drop, col-resize, context-menu,
+row-resize, n-resize, e-resize, s-resize, w-resize, grab, grabbing, zoom-in, zoom-out) {
+  .cursor-#{$cursor} {
+    cursor: ($cursor) !important;
+  }
+}
+
+.clearfix{
+  @include clearfix
+}
+
+// Scrolling
+// ------------------------------------------
+.scroll-x, .scroll-y {
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-x {
+ overflow-x: auto;
+}
+
+.scroll-y {
+ overflow-y: auto;
+}
+
+// TODO: Layouts
+.full-width, .fluid, .full {
+  width: 100%;
+}
+
+
+// Floats
+// ------------------------------------------
+.float{
+  &.right, .fr {
+    float:right !important;
+  }
+  &.left, .fl {
+    float:left !important;
+  }
+}
+
+
+
+// Images
+// ------------------------------------------
+img{
+  &.full-width{
+    width: 100%;
+    max-width: 100%;
+  }
+  &.responsive{
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  &.round{
+    border-radius: 50%;
+  }
+}
+
+
+// Margins
+// ------------------------------------------
+.no-margin{
+  margin: 0 !important;
+}
+.no-margin-top{
+  margin-top: 0;
+}
+.no-margin-bottom{
+  margin-bottom: 0;
+}
+.no-margin-left{
+  margin-left: 0;
+}
+.no-margin-right{
+  margin-right: 0;
+}
+
+// Borders
+// ------------------------------------------
+.no-border{
+  border: 0 !important;
+}
+
+// Padding
+// ------------------------------------------
+.no-padding{
+  padding: 0 !important;
+}
+.no-padding-top{
+  padding-top: 0;
+}
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+.no-padding-right {
+  padding-right: 0;
+}
+.no-padding-left {
+  padding-left: 0;
+}
+
+// Visibility
+// ------------------------------------------
+.hidden{
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+
+// Text decoration
+// ------------------------------------------
+.text-decoration-underline,.t-d-u{
+  text-decoration: underline;
+}
+.text-decoration-strike, .t-d-s{
+  text-decoration: line-through;
+}
+.text-decoration-none, .no-text-decoration, .no-t-d{
+  text-decoration: none;
+}
+
+// Font Colors
+// ------------------------------------------
+.color-primary, a.color-primary {
+  color: $color-primary !important;
+}
+.color-alt, a.color-alt {
+  color: $color-alt !important;
+}
+.color-dark, a.color-dark {
+  color: $color-dark !important;
+}
+.color-light, a.color-light {
+  color: $color-light !important;
+}
+.color-green, a.color-green {
+  color: $color-green !important;
+}
+.color-red, a.color-red {
+  color: $color-red !important;
+}
+.color-blue, a.color-blue {
+  color: $color-blue;
+}
+.color-yellow, a.color-yellow {
+  color: $color-yellow;
+}
+.color-white, a.color-white {
+  color: $color-white !important;
+}
+
+
+.hover-btn-outline{
+  &:hover{
+    background: transparent;
+    border: 1px solid;
+  }
+}
+.hover-btn-outline-reverse{
+  &:hover{
+    background: auto;
+    border: 1px solid transparent;
+  }
+}
+// Hover Opacity
+// ------------------------------------------
+.hover-opacity-0 {
+  &:hover {
+    opacity: 0;
+  }
+}
+.hover-opacity-25 {
+  &:hover{
+    opacity: .25;
+  }
+}
+.hover-opacity-50 {
+  &:hover{
+    opacity: .5;
+  }
+}
+.hover-opacity-75 {
+  &:hover{
+    opacity: .75;
+  }
+}
+.hover-opacity-100 {
+  &:hover{
+    opacity: 1;
+  }
+}
+
+// Hover Scale
+// ------------------------------------------
+.hover-scale-0 {
+  &:hover{
+    transform: scale(0);
+  }
+}
+.hover-scale-25 {
+  &:hover{
+    transform: scale(.25);
+  }
+}
+.hover-scale-50 {
+  &:hover{
+    transform: scale(0.5);
+  }
+}
+.hover-scale-100{
+  &:hover{
+    transform: scale(1);
+  }
+}
+.hover-scale-105{
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+.hover-scale-125{
+  &:hover{
+    transform: scale(1.25);
+  }
+}
+
+/* ARIA + Screen reader assists */
+.sr-only {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+[aria-hidden="true"] {
+  display: none;
+}
+
+
+// Positions
+// ------------------------------------------
+.position-fixed-top{
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+.position-fixed-bottom{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+.position-absolute-bottom{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.position-absolute-top{
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+// Floats
+// ------------------------------------------
+.float-right{
+  float: right;
+}
+.float-left{
+  float:left;
+}
