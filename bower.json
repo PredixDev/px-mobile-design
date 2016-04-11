@@ -1,5 +1,5 @@
 {
-  "name": "px-mobile-designs",
+  "name": "px-mobile-design",
   "version": "0.0.1",
   "authors": [
     "Jonnie Spratley <jonnie.spratley@ge.com>"
@@ -7,7 +7,7 @@
   "description": "A web component for px.",
   "repository": {
     "type": "git",
-    "url": "https://github.build.ge.com/PredixComponents/px-mobile-designs.git"
+    "url": "https://github.build.ge.com/PredixComponents/px-mobile-design.git"
   },
   "keywords": [
     "px",
@@ -23,6 +23,14 @@
   ],
   "dependencies": {
     "polymer": "latest",
+    "px-button": "https://github.build.ge.com/PredixComponents/px-button.git",
+    "px-drawer": "https://github.build.ge.com/PredixComponents/px-drawer.git",
+    "px-page": "https://github.build.ge.com/PredixComponents/px-page.git#develop",
+    "px-navbar": "https://github.build.ge.com/PredixComponents/px-navbar.git",
+    "px-tab-bar": "https://github.build.ge.com/PredixComponents/px-tab-bar.git",
+    "px-action-sheet": "https://github.build.ge.com/PredixComponents/px-action-sheet.git",
+    "px-view": "https://github.build.ge.com/PredixComponents/px-view.git",
+    "px-table-view": "https://github.build.ge.com/PredixComponents/px-table-view.git",
     "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git"
   },
   "devDependencies": {
@@ -30,6 +38,7 @@
     "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git"
   },
   "resolutions": {
-    "polymer": "^1.2.0"
+    "polymer": "^1.2.0",
+    "fetch": "~0.10.0"
   }
 }
