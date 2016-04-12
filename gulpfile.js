@@ -77,6 +77,16 @@ gulp.task('clean', function () {
   }).pipe($.clean());
 });
 
+gulp.task('cssmin', function () {
+  return gulp.src('./css/*.css')
+    .pipe(filelog())
+    .pipe($.cssmin())
+    .pipe($.size())
+    .pipe($.rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('./css'));
+});
 gulp.task('sass', function () {
   return gulp.src('./sass/*.scss')
     .pipe(filelog())
@@ -92,7 +102,8 @@ gulp.task('autoprefixer', function () {
       cascade: false
     }))
     .pipe($.size())
-    .pipe(gulp.dest('css'));
+
+  .pipe(gulp.dest('css'));
 });
 
 gulp.task('css', function () {
@@ -128,10 +139,10 @@ gulp.task('copy', function () {
 });
 
 gulp.task('cssfmt', function () {
-  return gulp.src(['css/*.css', 'css/*.min.css'])
+  return gulp.src(['css/*.css'])
     .pipe(filelog())
     .pipe(cssfmt())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('css'));
 });
 
 
@@ -158,4 +169,10 @@ gulp.task('vulcanize', ['copy'], function () {
 
 
 gulp.task('watch', ['sass:watch', 'autoprefixer:watch']);
-gulp.task('default', gulpSequence('clean', 'sass', 'css', 'autoprefixer', 'cssfmt', 'sassdoc'));
+gulp.task('default', gulpSequence('clean',
+  'sass',
+  'autoprefixer',
+  'cssfmt',
+  'css',
+  'vulcanize',
+  'sassdoc'));

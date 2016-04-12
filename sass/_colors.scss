@@ -140,10 +140,8 @@ html5: #E86442,
 evernote: #1D8C56,
 evernote-dark: #233039
 ) {
-  .background-color{
-    &.#{$name} {
-      background-color: $rgb !important;
-    }
+  .u-bg--#{$name} {
+    background-color: $rgb !important;
   }
 }
 .background-colors{

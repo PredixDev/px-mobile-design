@@ -1,20 +1,37 @@
+
+//Prefix for utility classes
+$utility-prefix:'u-';
+$layout-prefix:'l-';
+$block-prefix:'b-';
+$helper-prefix:'h-';
+
+
+$margin-step: 5;
+$height-step: 25;
+$width-step: 25;
+$padding-step: 5;
+
+
 //Global Namespace
-// /All classes will be under this namespace
-///
 $namespace: 'px';
 // Type
 // --------------------------------------------------
-///
+/// Global font family
+/// @access private
 $font-family-default: "GE Inspira Sans", sans-serif !default;
+
 /// Global font size
 /// @access private
 $font-size-default: 1rem !default;
+
 /// Global font weight
 /// @access private
 $font-weight: 500 !default;
+
 /// Global light font weight
 /// @access private
 $font-weight-light: 400 !default;
+
 /// Global line height
 /// @access private
 $line-height-default: 21px !default;

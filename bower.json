@@ -31,7 +31,8 @@
     "px-action-sheet": "https://github.build.ge.com/PredixComponents/px-action-sheet.git",
     "px-view": "https://github.build.ge.com/PredixComponents/px-view.git",
     "px-table-view": "https://github.build.ge.com/PredixComponents/px-table-view.git",
-    "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git"
+    "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git",
+    "px-design-system": "https://github.build.ge.com/PredixComponents/px-design-system.git"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
@@ -39,6 +40,8 @@
   },
   "resolutions": {
     "polymer": "^1.2.0",
-    "fetch": "~0.10.0"
+    "fetch": "~0.10.0",
+    "px-theme": "~0.6.5",
+    "web-animations-js": "2.1.4"
   }
 }
