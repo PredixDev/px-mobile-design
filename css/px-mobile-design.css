@@ -7,14 +7,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 0;
   opacity: 0;
   visibility: hidden;
 }
 
 .action-dialog--mask--is-open {
-  z-index: 10;
+  z-index: 5;
   opacity: 1;
   visibility: visible;
 }
@@ -25,7 +25,7 @@
   -ms-user-select: none;
   user-select: none;
   padding: 0;
-  border-radius: 0px;
+  border-radius: 8px;
   z-index: 500;
   position: absolute;
   bottom: -35%;
@@ -38,7 +38,7 @@
 }
 
 .action-sheet--is-open {
-  z-index: 15;
+  z-index: 10;
   -webkit-transform: translateY(0);
   transform: translateY(0);
   opacity: 1;
@@ -62,8 +62,12 @@
 }
 
 .action-sheet__button {
+  width: 100%;
+  background-color: #fff !important;
+  background: transparent;
   box-shadow: none;
-  border: none;
+  border: none !important;
+  color: #177efb;
   display: block;
   font-size: 1.2rem;
   text-align: center;
@@ -77,12 +81,33 @@
   width: 100%;
   cursor: pointer;
   outline: none;
-  border-radius: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-bottom: 1px solid #ccc !important;
+}
+
+.action-sheet__button:active {
+  transition: none;
+  opacity: 0.8;
+}
+
+.action-sheet__button:disabled,
+.action-sheet__button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.action-sheet__button:focus {
+  outline: 0;
+  transition: none;
+}
+
+.action-sheet__button:hover {
+  box-shadow: none;
+  transition: none;
 }
 
 .action-sheet__button--danger {
-  color: #ff5c5c !important;
+  color: #fe3f35 !important;
   border-bottom: none !important;
 }
 
@@ -92,7 +117,7 @@
 }
 
 .action-sheet__button--info {
-  color: #525156 !important;
+  color: #777 !important;
   font-size: 1rem;
   padding: 20px 12px;
   pointer-events: none;
@@ -103,6 +128,30 @@
   opacity: 1;
 }
 
+/*
+bem model:
+
+navbar
+	--fixed
+	--dark
+	--light
+	navbar__toggle
+		navbar__toggle__button
+	navbar__center
+		navbar__center__title
+		navbar__center__subtitle
+
+	navbar__button
+		--left
+		--right
+
+	navbar__left
+		navbar__left__button
+
+	navbar__right
+		navbar-ui__right__button
+
+*/
 .navbar {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -119,8 +168,8 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
-  height: 45px;
-  padding-top: 0.5rem;
+  height: 55px;
+  padding-top: 10px;
   color: #1f1f21;
   background-color: #fff;
 }
@@ -185,14 +234,14 @@
 }
 
 .navbar__button {
-  padding: 0.2rem 0.5rem;
+  padding: 4px 10px;
   letter-spacing: 0;
   text-shadow: 0 1px none;
   background-color: transparent;
   border-radius: 2px;
   border: 1px solid transparent;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 17px;
   transition: none;
   vertical-align: middle;
   box-shadow: none;
@@ -257,178 +306,6 @@
 .navbar__hamburger__icon--3 {
   -webkit-transform: translate3d(0, 8px, 0);
   transform: translate3d(0, 8px, 0);
-}
-
-.tab-bar {
-  font-family: "GE Inspira Sans", sans-serif;
-  font-weight: 500;
-  font-size: 17px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-  height: 49px;
-  border-top: 1px solid transparent;
-  width: 100%;
-}
-
-.tab-bar--chrome {
-  background-color: #efeff4;
-  color: #1f1f21;
-}
-
-.tab-bar--alt {
-  background-color: #d1d0d8;
-  color: #1f1f21;
-}
-
-.tab-bar--dark {
-  background-color: #242326;
-  color: white !important;
-}
-
-.tab-bar--dark button {
-  color: white !important;
-}
-
-.tab-bar--primary {
-  background-color: #0f5fb6;
-  color: white;
-}
-
-.tab-bar--primary button {
-  color: white !important;
-}
-
-.tab-bar__item {
-  font-weight: 400;
-  font-size: 17px;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 0;
-}
-
-.tab-bar__item > input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 0;
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  margin: 0;
-  opacity: 0.001;
-  outline: none;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  vertical-align: top;
-  width: 100%;
-  z-index: 1;
-}
-
-.tab-bar__item__icon {
-  display: block;
-  font-size: 24px;
-  height: 32px;
-  line-height: 32px;
-  margin: 0;
-  padding: 0;
-}
-
-.tab-bar__item__content {
-  bottom: 49px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 0;
-}
-
-.tab-bar__item__button {
-  background: transparent;
-  background-clip: padding-box;
-  border: none;
-  border-top: none;
-  box-shadow: none;
-  box-sizing: border-box;
-  cursor: default;
-  display: inline-block;
-  font-size: 1.1rem;
-  font-family: "GE Inspira Sans", sans-serif;
-  height: 49px;
-  letter-spacing: 0;
-  line-height: 49px;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  text-shadow: 0 1px none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: top;
-  white-space: nowrap;
-  width: 100%;
-  margin-top: .1rem;
-}
-
-.tab-bar__item__button:disabled {
-  cursor: default;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.tab-bar__item__button:focus {
-  border: 1px solid red;
-  border-top: none;
-  box-shadow: none;
-  outline: 0;
-  z-index: 1;
-}
-
-.tab-bar__item__label {
-  font-size: 17px;
-  font-weight: 400;
-}
-
-.tab-bar__item__label:first-child {
-  font-size: 16px;
-  line-height: 49px;
-  margin: 0;
-  padding: 0;
-}
-
-.tab-bar .tab-bar__item__button_icon + .tab-bar__item__button_label {
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.tab-bar input[type=radio]:checked + .tab-bar__item__button {
-  background-color: transparent;
-  border-top: none;
-  box-shadow: none;
-  color: #0a9ec1 !important;
-}
-
-.tab-bar input[type=radio]:checked + .tab-bar__item__button > .tab-bar__item__button_icon {
-  color: #0a9ec1 !important;
 }
 
 /*
