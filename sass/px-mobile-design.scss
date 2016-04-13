@@ -2,9 +2,7 @@
 
 @import "mixins";
 @import "variables";
-
-
-@import "px-mobile-mixin-designs/mixins";
+@import "px-mobile-mixin-design/mixins";
 @import "px-action-sheet/sass/px-action-sheet";
 @import "px-navbar/sass/px-navbar";
 @import "px-tab-bar/sass/px-tab-bar-predix";
@@ -17,6 +15,4 @@
   @import "colors";
   @import "helpers";
   @import "utilities";
-
-
 }
