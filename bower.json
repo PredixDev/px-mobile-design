@@ -31,6 +31,8 @@
     "px-drawer": "https://github.build.ge.com/PredixComponents/px-drawer.git",
     "px-page": "https://github.build.ge.com/PredixComponents/px-page.git",
     "px-navbar": "https://github.build.ge.com/PredixComponents/px-navbar.git",
+    "px-sidebar": "https://github.build.ge.com/PredixComponents/px-sidebar.git",
+    "px-responsive-layouts": "https://github.build.ge.com/PredixComponents/px-responsive-layouts.git",
     "px-tab-bar": "https://github.build.ge.com/PredixComponents/px-tab-bar.git",
     "px-action-sheet": "https://github.build.ge.com/PredixComponents/px-action-sheet.git",
     "px-view": "https://github.build.ge.com/PredixComponents/px-view.git",
@@ -38,9 +40,18 @@
     "px-mobile-mixin-designs": "https://github.build.ge.com/PredixComponents/px-mobile-mixin-designs.git"
   },
   "resolutions": {
-    "polymer": "^1.2.0",
+    "web-animations-js": "~2.1.2",
+    "polymer": "~v1.2.3",
+    "px-theme": "~0.6.1",
+    "es6-promise": "~3.0.2",
     "fetch": "~0.10.0",
-    "px-theme": "~0.6.5",
-    "web-animations-js": "2.1.4"
+    "px-tooltip": "0.4.0",
+    "px-page": "d40598f84d",
+    "px-simple-line-chart": "^1.2.5",
+    "px": "1.4.0",
+    "px-simple-bar-chart": "^1.1.5",
+    "px-helpers-design": "~0.2.0",
+    "px-typography-design": "~0.2.0",
+    "px-dropdown": "^0.8.0"
   }
 }
