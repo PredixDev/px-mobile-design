@@ -1,6 +1,4 @@
 @charset "utf-8";
-
-@import "mixins";
 @import "variables";
 @import "px-mobile-mixin-design/mixins";
 @import "px-action-sheet/sass/px-action-sheet";
@@ -8,29 +6,12 @@
 @import "px-tab-bar/sass/px-tab-bar-predix";
 @import "px-table-view/sass/px-table-view-predix";
 
-:root{
+:root {
   @include switch();
   @include range($select-default, $gray5);
   @import "animate";
   @import "colors";
   @import "helpers";
   @import "utilities";
+
 }
-
-///Responsive visiblity
-.hidden{display:none;visibility:hidden;}
-.visible-phone{display:none !important;}
-.visible-tablet{display:none !important;}
-.hidden-desktop{display:none !important;}
-.visible-desktop{display:inherit !important;}
-
-@media (min-width:768px) and (max-width:979px){
-  .hidden-desktop{display:inherit !important;}
-  .visible-desktop{display:none !important ;}
-  .visible-tablet{display:inherit !important;}
-  .hidden-tablet{display:none !important;}}
-@media (max-width:767px){
-  .hidden-desktop{display:inherit !important;}
-  .visible-desktop{display:none !important;}
-  .visible-phone{display:inherit !important;}
-  .hidden-phone{display:none !important;}}
