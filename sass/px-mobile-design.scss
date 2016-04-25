@@ -5,13 +5,11 @@
 @import "px-navbar/sass/px-navbar";
 @import "px-tab-bar/sass/px-tab-bar-predix";
 @import "px-table-view/sass/px-table-view-predix";
-
-:root {
+ :root {
   @include switch();
-  @include range($select-default, $gray5);
+  //  @include range($select-default, $gray5);
   @import "animate";
   @import "colors";
   @import "helpers";
   @import "utilities";
-
 }
