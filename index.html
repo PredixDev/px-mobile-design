@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="utf-8">
-	<title>px-mobile-design</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<head>
+		<meta charset="utf-8">
+		<title>px-mobile-design</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-	<script src="../webcomponentsjs/webcomponents.min.js"></script>
-	<script src="../fastclick/lib/fastclick.js"></script>
+		<script src="../webcomponentsjs/webcomponents.min.js"></script>
+		<script src="../fastclick/lib/fastclick.js"></script>
 
-	<link rel="import" href="../iron-demo-helpers/demo-snippet.html" />
+		<link rel="import" href="../iron-demo-helpers/demo-snippet.html" />
 
-	<link rel="stylesheet" href="dist/px.css">
-	<link rel="stylesheet" href="dist/px-mobile-design.css">
+		<link rel="stylesheet" href="dist/px.css">
+		<link rel="stylesheet" href="dist/px-mobile-design.css">
 
-	<script type="text/javascript">
+		<script type="text/javascript">
 		if ('addEventListener' in document) {
 			document.addEventListener('DOMContentLoaded', function() {
 				FastClick.attach(document.body);
 			}, false);
 		}
-	</script>
-	<style media="screen">
+		</script>
+		<style media="screen">
 		body {
 			background: #efeff4;
 			overflow: hidden;
@@ -29,160 +29,143 @@
 			overflow-y: auto;
 			-webkit-overflow-scrolling: touch;
 		}
-	</style>
-</head>
 
-<body>
+		.box {
+			width: 100%;
+		}
+		</style>
+	</head>
 
-	<div class="viewport viewport--full-height">
-		<article>
-			<section class="u-mb+">
-				<h1 class="beta">px-mobile-design</h1>
-				<p>
-					The following components are mobile first.
-				</p>
-				<ol class="list list--bare">
-					<li><a href="../px-action-sheet">px-action-sheet</a></li>
-					<li><a href="../px-drawer">px-drawer</a></li>
-					<li><a href="../px-navbar">px-navbar</a></li>
-					<li><a href="../px-table-view">px-table-view</a></li>
-				</ol>
+	<body>
 
+		<div class="viewport viewport--full-height">
+			<article>
+				<section class="u-mb+">
+					<h1 class="beta">px-mobile-design</h1>
+					<p>
+						The following components are mobile first.
+					</p>
+					<ol class="list list--bare">
+						<li><a href="../px-action-sheet">px-action-sheet</a></li>
+						<li><a href="../px-drawer">px-drawer</a></li>
+						<li><a href="../px-navbar">px-navbar</a></li>
+						<li><a href="../px-table-view">px-table-view</a></li>
+					</ol>
 
-				<!-- TODO: action sheet -->
-				<h2>px-action-sheet</h2>
-				<demo-snippet>
-					<template>
-						<link rel="import" href="../px-action-sheet/px-action-sheet.html">
-						<div style="position:relative; height: 500px; overflow:hidden;">
-							<px-navbar title="View Title">
-								<button type="button" class="navbar__button" onclick="document.getElementById('myActionSheet').toggle()">
-									<i class="fa fa-lg fa-ellipsis-v"></i>
-								</button>
-							</px-navbar>
-						</div>
-						<px-action-sheet id="myActionSheet">
-							<px-action-sheet-button label="This is a two line note to clarify a destructive action you are about to take." type="info"></px-action-sheet-button>
-							<px-action-sheet-button label="Delete" type="danger" onclick="alert('Delete Item')"></px-action-sheet-button>
-							<px-action-sheet-button label="Cancel" type="cancel" onclick="document.getElementById('myActionSheet').toggle()"></px-action-sheet-button>
-						</px-action-sheet>
-					</template>
-				</demo-snippet>
+					<!-- TODO: action sheet -->
+					<h2>px-action-sheet</h2>
+					<demo-snippet>
+						<template>
+							<link rel="import" href="../px-action-sheet/px-action-sheet.html">
+							<div style="position:relative; height: 500px; overflow:hidden;">
+								<px-navbar title="View Title">
+									<button type="button" class="navbar__button" onclick="document.getElementById('myActionSheet').toggle()">
+										<i class="fa fa-lg fa-ellipsis-v"></i>
+									</button>
+								</px-navbar>
+							</div>
+							<px-action-sheet id="myActionSheet">
+								<px-action-sheet-button label="This is a two line note to clarify a destructive action you are about to take." type="info"></px-action-sheet-button>
+								<px-action-sheet-button label="Delete" type="danger" onclick="alert('Delete Item')"></px-action-sheet-button>
+								<px-action-sheet-button label="Cancel" type="cancel" onclick="document.getElementById('myActionSheet').toggle()"></px-action-sheet-button>
+							</px-action-sheet>
+						</template>
+					</demo-snippet>
 
-				<!-- TODO: drawer -->
-				<h2>px-drawer</h2>
-				<demo-snippet>
-					<template>
-						<link rel="import" href="../px-drawer/px-drawer.html">
-						<div style="position:relative; height: 500px; overflow:hidden;">
-							<px-navbar title="Application Name">
-								<button class="navbar__button" onclick="document.getElementById('myLeftDrawer').toggle()">
-									<i class="fa fa-lg fa-bars"></i>
-								</button>
-							</px-navbar>
+					<!-- TODO: drawer -->
 
-							<px-drawer id="myLeftDrawer" side="left" theme="dark">
-								<ul class="table-view table-view--bare table-view--bottom table-view--avatars">
-									<px-table-row title="Jonnie Spratley" type="tappable" image="http://s3-us-west-2.amazonaws.com/s.cdpn.io/49212/profile/profile-80_4.jpg"></px-table-row>
-								</ul>
-								<br>
-								<ul class="table-view table-view--bare">
-									<px-table-row title="Home" icon="fa fa-home" type="nav-right" href="#home"></px-table-row>
-									<px-table-row title="Dashboard" icon="fa fa-dashboard" type="nav-right" href="#dashboard"></px-table-row>
-									<px-table-row title="Alerts" icon="fa fa-exclamation-triangle" type="nav-right" href="#alerts"></px-table-row>
-									<px-table-row title="Cases" icon="fa fa-briefcase" type="nav-right" href="#cases"></px-table-row>
-									<px-table-row title="Analysis" icon="fa fa-bar-chart" type="nav-right" href="#analysis"></px-table-row>
-								</ul>
-							</px-drawer>
+					<div class="box">
+						<h2>px-drawer</h2>
+						<p>
+							The px-drawer component provides users with the ability to display actions on mobile devices.
+						</p>
+						<demo-snippet>
+							<template>
+								<link rel="import" href="../px-drawer/px-drawer.html">
+								<div style="position:relative; height: 500px; overflow:hidden;">
+									<px-navbar title="Application Name">
+										<button class="navbar__button" onclick="document.getElementById('myLeftDrawer').toggle()">
+											<i class="fa fa-lg fa-bars"></i>
+										</button>
+									</px-navbar>
 
-						</div>
-
-
-
-					</template>
-				</demo-snippet>
-
-				<!-- TODO: navbar -->
-				<h2>px-navbar</h2>
-				<demo-snippet>
-					<template>
-						<link rel="import" href="../px-navbar/px-navbar.html">
-
-						<div style="position:relative; height: 75px;">
-							<px-navbar id="navbar1" title="Application">
-								<button type="button" class="navbar__button">
-									<i class="fa fa-lg fa-navicon"></i>
-								</button>
-							</px-navbar>
-						</div>
-
-						<div style="position:relative; height: 75px;">
-							<px-navbar id="navbar1-1" title="View" subtitle="Context" back-label="" back>
-								<button type="button" class="navbar__button">
-									<i class="fa fa-lg fa-ellipsis-v"></i>
-								</button>
-							</px-navbar>
-						</div>
-
-						<div style="position:relative; height: 75px;">
-							<px-navbar id="navbar1-2" title="Modal">
-								<div>
-									<!-- spacer -->
+									<px-drawer id="myLeftDrawer" side="left" theme="dark">
+										<ul class="table-view table-view--bare table-view--bottom table-view--avatars">
+											<px-table-row title="Jonnie Spratley" type="tappable" image="http://s3-us-west-2.amazonaws.com/s.cdpn.io/49212/profile/profile-80_4.jpg"></px-table-row>
+										</ul>
+										<br>
+										<ul class="table-view table-view--bare">
+											<px-table-row title="Home" icon="fa fa-home" type="nav-right" href="#home"></px-table-row>
+											<px-table-row title="Dashboard" icon="fa fa-dashboard" type="nav-right" href="#dashboard"></px-table-row>
+											<px-table-row title="Alerts" icon="fa fa-exclamation-triangle" type="nav-right" href="#alerts"></px-table-row>
+											<px-table-row title="Cases" icon="fa fa-briefcase" type="nav-right" href="#cases"></px-table-row>
+											<px-table-row title="Analysis" icon="fa fa-bar-chart" type="nav-right" href="#analysis"></px-table-row>
+										</ul>
+									</px-drawer>
 								</div>
-								<button type="button" class="btn btn--tertiary navbar__button">
-									Done
-								</button>
-							</px-navbar>
-						</div>
-					</template>
-				</demo-snippet>
-
-
-				<!-- TODO: table view -->
-				<h2>px-table-view</h2>
-				<demo-snippet>
-					<template>
-						<link rel="import" href="../px-table-view/px-table-view.html">
-
-						<div class="demo" style="height: 500px; overflow:auto;">
-							<template id="tableViewTemplate" is="dom-bind">
-								<iron-ajax url="../px-table-view/demo/data.json" last-response="{{data}}" auto></iron-ajax>
-								<px-table-view id="myTable" items="[[data]]" as="item">
-
-								</px-table-view>
-								<iron-list id="ironList" items="[[data]]" as="item" class="table-view  table-view--small">
-									<template>
-										<div class="table-row table-row--nav-right" on-click="handleSelect">
-											<div class="table-row__media table-row__media--icon" hidden="{{!item.icon}}"> <i class$="{{item.icon}}"></i> </div>
-											<div class="table-row__media table-row__media--image" hidden="{{!item.image}}"> <img src$="{{item.image}}" alt="{{item.title}}" /> </div>
-											<div class="table-row__content"> <span class="table-row__content__title">{{item.title}}</span> </div>
-										</div>
-									</template>
-								</iron-list>
 							</template>
-							<script type="text/javascript">
-							var tmpl = document.getElementById('tableViewTemplate');
-							tmpl.handleSelect = function(e) {
-								console.log('handleSelect', e);
-							};
-						//	document.addEventListener('WebComponentsReady', function() {
-								setTimeout(function() {
-									document.querySelector('iron-list').fire('iron-resize');
-								}, 50);
-						//	});
-							</script>
-						</div>
-					</template>
-				</demo-snippet>
+						</demo-snippet>
+					</div>
 
+					<!-- TODO: navbar -->
+					<h2>px-navbar</h2>
+					<demo-snippet>
+						<template>
+							<link rel="import" href="../px-navbar/px-navbar.html">
 
+							<div style="position:relative; height: 75px;">
+								<px-navbar id="navbar1" title="Application">
+									<button type="button" class="navbar__button">
+										<i class="fa fa-lg fa-navicon"></i>
+									</button>
+								</px-navbar>
+							</div>
 
-			</section>
-		</article>
-	</div>
+							<div style="position:relative; height: 75px;">
+								<px-navbar id="navbar1-1" title="View" subtitle="Context" back-label="" back>
+									<button type="button" class="navbar__button">
+										<i class="fa fa-lg fa-ellipsis-v"></i>
+									</button>
+								</px-navbar>
+							</div>
 
-	<template id="app" is="dom-bind">
-	</template>
-</body>
+							<div style="position:relative; height: 75px;">
+								<px-navbar id="navbar1-2" title="Modal">
+									<div>
+										<!-- spacer -->
+									</div>
+									<button type="button" class="btn btn--tertiary navbar__button">
+										Done
+									</button>
+								</px-navbar>
+							</div>
+						</template>
+					</demo-snippet>
+
+					<!-- TODO: table view -->
+					<h2>px-table-view</h2>
+					<demo-snippet>
+						<template>
+							<link rel="import" href="../px-table-view/px-table-view.html">
+
+							<div class="demo" style="height: 500px; overflow:auto;">
+								<px-table-view id="myTable"></px-table-view>
+								<script type="text/javascript">
+								var myTable = document.getElementById('myTable');
+								myTable.items = [{
+									title: 'Item 1'
+								}];
+								</script>
+							</div>
+						</template>
+					</demo-snippet>
+
+				</section>
+			</article>
+		</div>
+
+		<template id="app" is="dom-bind">
+		</template>
+	</body>
 
 </html>
