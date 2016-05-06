@@ -1,11 +1,13 @@
 @charset "utf-8";
 @import "variables";
 @import "px-mobile-mixin-design/mixins";
-@import "px-action-sheet/sass/px-action-sheet";
-@import "px-navbar/sass/px-navbar";
-@import "px-tab-bar/sass/px-tab-bar-predix";
-@import "px-table-view/sass/px-table-view-predix";
- :root {
+
+//@import "px-action-sheet/sass/px-action-sheet";
+//@import "px-navbar/sass/px-navbar-sketch";
+
+//@import "px-tab-bar/sass/px-tab-bar-predix";
+//@import "px-table-view/sass/px-table-view-sketch";
+:root {
   @include switch();
   //  @include range($select-default, $gray5);
   @import "animate";
