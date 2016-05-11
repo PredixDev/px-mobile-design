@@ -1,8 +1,7 @@
 @charset "utf-8";
+@import "inuit-responsive-settings/_settings.responsive.scss";
 @import "variables";
 @import "mixins";
-@import "inuit-responsive-settings/_settings.responsive.scss";
-@import "inuit-responsive-tools/_tools.responsive.scss";
 @import "px-widths-tools-design/_tools.widths.scss";
 @import "px-spacing-design/_trumps.spacing.scss";
 @import "px-widths-design/_trumps.widths.scss";
@@ -14,19 +13,7 @@
 //@import "px-table-view/sass/px-table-view-sketch";
 @include switch();
 //@include range($select-default, $gray5);
-@import "animate";
+//@import "animate";
 @import "colors";
 @import "helpers";
 @import "utilities";
-
-/// Loop over our breakpoints defined in _settings.responsive.scss
-@each $breakpoint in $breakpoints {
-  $alias: nth($breakpoint, 1);
-  @include media-query($alias) {
-
-    /// Loop through each of our column sizes and generate its responsive width classes.
-    @each $inuit-widths-column in $inuit-widths-columns-responsive {
-       @include inuit-widths($inuit-widths-column, -#{$alias});
-    }
-  }
-}

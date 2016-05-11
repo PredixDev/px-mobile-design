@@ -12,7 +12,6 @@ $padding-step                   : 5;
 
 //Global Namespace
 $namespace                      : 'px';
-
 /// @type List [default] - By default we will create wholes, halves, thirds, quarters, and sixths. Predefine this Map to override.
 $inuit-widths-columns-responsive: ( 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12 );
 // These can be invoked later on via the `media-query()` mixin found in
@@ -25,7 +24,6 @@ $inuit-enable-margins--none     : true;
 $inuit-enable-responsive-margins: true;
 $inuit-enable-margins           : true;
 $inuit-enable-paddings          : true;
-
 // Extra small devices (portrait phones, less than 34em)
 $bp-xsmall--min                 : 320px;
 $bp-xsmall--max                 : 33.9em;

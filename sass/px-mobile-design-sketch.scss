@@ -2,4 +2,18 @@
 
 :root {
   @import 'px-mobile-design-predix.scss';
+  @include responsiveUtils();
+
+  /// Loop over our breakpoints defined in _settings.responsive.scss
+  @each $breakpoint in $breakpoints {
+    $alias: nth($breakpoint, 1);
+    @include media-query($alias) {
+
+      /// Loop through each of our column sizes and generate its responsive width classes.
+      @each $inuit-widths-column in $inuit-widths-columns-responsive {
+         @include inuit-widths($inuit-widths-column, -#{$alias});
+      }
+    }
+  }
+
 }

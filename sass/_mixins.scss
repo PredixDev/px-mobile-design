@@ -1,80 +1,34 @@
+@import 'variables';
+@import "inuit-responsive-tools/_tools.responsive.scss";
 ///
 ///-----------------------
 /// Mixins
 @mixin respondMax($media) {
-  // Extra small devices (portrait phones, less than 34em)
-  @if $media == xsmall {
-     @media (max-width: $bp-xsmall--max){
-      @content;
-    }
-  }
-  // Small devices (landscape phones, less than 48em)
-  @else if $media == small {
-     @media (max-width: $bp-small--max){
-      @content;
-    }
-  }
-  @else if $media == mobile {
-     @media (max-width: $bp-small--max){
-      @content;
-    }
-  }
-  // Medium devices (tablets, less than 62em)
-  @else if $media == medium {
-     @media (max-width: $bp-medium--max){
-      @content;
-    }
-  }
-  @else if $media == tablet {
-     @media (max-width: $bp-medium--max){
-      @content;
-    }
-  }
-  // Large devices (desktops, less than 75em)
-  @else if $media == large {
-     @media (max-width: $bp-large--max){
-      @content;
-    }
-  }
-  @else if $media == desktop {
-     @media (max-width: $bp-large--max){
-      @content;
-    }
-  }
-  @else {
-     @warn"Unfortunately, no value could be retrieved from `#{$media}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+   @include media-query($media){
+    @content;
   }
 }
 @mixin respondMin($media) {
-  // Extra small devices (portrait phones, less than 34em)
-  @if $media == xsmall {
-     @media (min-width: $bp-xsmall--min){
-      @content;
-    }
-  }
-  // Small devices (landscape phones, less than 48em)
-  @else if $media == small {
-     @media (min-width: $bp-small--min){
-      @content;
-    }
-  }
-  // Medium devices (tablets, less than 62em)
-  @else if $media == medium {
-     @media (min-width: $bp-medium--min){
-      @content;
-    }
-  }
-  // Large devices (desktops, less than 75em)
-  @else if $media == large {
-     @media (min-width: $bp-large--min){
-      @content;
-    }
-  }
-  @else {
-     @warn"Unfortunately, no value could be retrieved from `#{$media}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+   @include media-query($media){
+    @content;
   }
 }
-
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// @example
+///   .selector {
+///     color: red;
+///     @include respond-to('small') {
+///       color: blue;
+///     }
+///   }
+/// @access public
+@mixin respond($media) {
+   @include media-query($media){
+    @content;
+  }
+}
 ///// Resonsive Utils
 /////
 @mixin responsiveUtils() {
@@ -153,27 +107,7 @@
     @content;
   }
 }
-/// Mixin to manage responsive breakpoints
-/// @param {String} $breakpoint - Breakpoint name
-/// @require $breakpoints
-/// @example
-///   .selector {
-///     color: red;
-///     @include respond-to('small') {
-///       color: blue;
-///     }
-///   }
-/// @access public
-@mixin respond($media) {
-   @include respondMax($media){
-    @content;
-  }
-}
 
-/// @alias respond
-@mixin respond-to($media) {
-   @include respond($media);
-}
 /// Block Element
 /// @access public
 /// @param {String} $element - Element's name
