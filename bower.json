@@ -26,8 +26,8 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
-    "px-design-system": "https://github.build.ge.com/PredixComponents/px-design-system.git",
-    "px-button": "https://github.build.ge.com/PredixComponents/px-button.git",
+
+    "px-partials": "https://github.build.ge.com/PredixComponents/px-partials.git",
     "px-drawer": "https://github.build.ge.com/PredixComponents/px-drawer.git",
     "px-page": "https://github.build.ge.com/PredixComponents/px-page.git",
     "px-navbar": "https://github.build.ge.com/PredixComponents/px-navbar.git",
