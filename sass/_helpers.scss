@@ -1,82 +1,19 @@
 @import "variables";
 @import "mixins";
 
-///Responsive visiblity
-.hidden {
-  display   : none;
-  visibility: hidden;
-}
-
-.visible-phone {
-  display: none !important;
-}
-
-.visible-tablet {
-  display: none !important;
-}
-
-.hidden-desktop {
-  display: none !important;
-}
-
-.visible-desktop {
-  display: inherit !important;
-}
-
-@include respond ('desktop') {
-  }
-
-@include respond ('mobile') {
-  .hidden-desktop {
-    display: inherit !important;
-  }
-
-  .visible-desktop {
-    display: none !important;
-  }
-
-  .visible-tablet {
-    display: inherit !important;
-  }
-
-  .hidden-tablet {
-    display: none !important;
-  }
-}
-
-@include respond ('tablet') {
-  .hidden-desktop {
-    display: inherit !important;
-  }
-
-  .visible-desktop {
-    display: none !important;
-  }
-
-  .visible-phone {
-    display: inherit !important;
-  }
-
-  .hidden-phone {
-    display: none !important;
-  }
-}
 /// Height / Width
-.full-height {
+.u-h--full {
   height: 100%;
 }
 
-.full-width {
+.u-w--full {
   width: 100%;
 }
 
-.round {
-  border-radius: 20px;
+.u--round {
+  border-radius: 50%;
 }
 
-.center {
-  @include centerer();
-}
 // Visibility
 // ------------------------------------------
 .hidden {
@@ -88,39 +25,42 @@
 }
 // Positions
 // ------------------------------------------
-.position-fixed-top {
+.u-pos--center {
+  @include centerer();
+}
+
+.u-fixed {
+  position: fixed;
+}
+
+.u-fixed--top {
   top     : 0;
   left    : 0;
   right   : 0;
   position: fixed;
 }
 
-.position-fixed-bottom {
+.u-fixed--bottom {
   bottom  : 0;
   left    : 0;
   right   : 0;
   position: fixed;
 }
 
-.position-absolute-bottom {
+.u-absolute {
+  position: absolute;
+}
+
+.u-absolute--bottom {
   bottom  : 0;
   left    : 0;
   right   : 0;
   position: absolute;
 }
 
-.position-absolute-top {
+.u-absolute--top {
   top     : 0;
   left    : 0;
   right   : 0;
   position: absolute;
-}
-// Floats
-// ------------------------------------------
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
 }

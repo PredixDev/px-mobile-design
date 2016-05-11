@@ -1,1 +1,756 @@
 ///
+///-----------------------
+/// Mixins
+@mixin respondMax($media) {
+  // Extra small devices (portrait phones, less than 34em)
+  @if $media == xsmall {
+     @media (max-width: $bp-xsmall--max){
+      @content;
+    }
+  }
+  // Small devices (landscape phones, less than 48em)
+  @else if $media == small {
+     @media (max-width: $bp-small--max){
+      @content;
+    }
+  }
+  @else if $media == mobile {
+     @media (max-width: $bp-small--max){
+      @content;
+    }
+  }
+  // Medium devices (tablets, less than 62em)
+  @else if $media == medium {
+     @media (max-width: $bp-medium--max){
+      @content;
+    }
+  }
+  @else if $media == tablet {
+     @media (max-width: $bp-medium--max){
+      @content;
+    }
+  }
+  // Large devices (desktops, less than 75em)
+  @else if $media == large {
+     @media (max-width: $bp-large--max){
+      @content;
+    }
+  }
+  @else if $media == desktop {
+     @media (max-width: $bp-large--max){
+      @content;
+    }
+  }
+  @else {
+     @warn"Unfortunately, no value could be retrieved from `#{$media}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+@mixin respondMin($media) {
+  // Extra small devices (portrait phones, less than 34em)
+  @if $media == xsmall {
+     @media (min-width: $bp-xsmall--min){
+      @content;
+    }
+  }
+  // Small devices (landscape phones, less than 48em)
+  @else if $media == small {
+     @media (min-width: $bp-small--min){
+      @content;
+    }
+  }
+  // Medium devices (tablets, less than 62em)
+  @else if $media == medium {
+     @media (min-width: $bp-medium--min){
+      @content;
+    }
+  }
+  // Large devices (desktops, less than 75em)
+  @else if $media == large {
+     @media (min-width: $bp-large--min){
+      @content;
+    }
+  }
+  @else {
+     @warn"Unfortunately, no value could be retrieved from `#{$media}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+///// Resonsive Utils
+/////
+@mixin responsiveUtils() {
+  .hidden-xs-up {
+    display: none !important;
+  }
+
+  ///---------------
+  ///XSmall
+  @include respondMax ('xsmall') {
+    .hidden-xs-down {
+      display: none !important;
+    }
+  }
+
+  @include respondMin ('xsmall') {
+    .hidden-sm-up {
+      display: none !important;
+    }
+  }
+
+  ///---------------
+  ///Small
+  @include respondMax ('small') {
+    .hidden-sm-down {
+      display: none !important;
+    }
+  }
+
+  @include respondMin ('small') {
+    .hidden-md-up {
+      display: none !important;
+    }
+  }
+
+  ///---------------
+  ///Medium
+  @include respondMax ('medium') {
+    .hidden-md-down {
+      display: none !important;
+    }
+  }
+
+  @include respondMin ('medium') {
+    .hidden-lg-up {
+      display: none !important;
+    }
+  }
+
+  ///---------------
+  ///Large
+  @include respondMax ('large') {
+    .hidden-lg-down {
+      display: none !important;
+    }
+  }
+
+  @include respondMin ('large') {
+    .hidden-xl-up {
+      display: none !important;
+    }
+  }
+
+  .hidden-xl-down {
+    display: none !important;
+  }
+  @content;
+}
+@mixin element($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+@mixin modifier($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// @example
+///   .selector {
+///     color: red;
+///     @include respond-to('small') {
+///       color: blue;
+///     }
+///   }
+/// @access public
+@mixin respond($media) {
+   @include respondMax($media){
+    @content;
+  }
+}
+
+/// @alias respond
+@mixin respond-to($media) {
+   @include respond($media);
+}
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+/// @example
+///    .block {
+///      // CSS declarations for .block
+///      @include element('element') {
+///           //CSS declarations for .block__element
+///      }
+///
+///      @include modifier('modifier') {
+///          // CSS declarations for .block--modifier
+///
+///          @include element('element') {
+///              // CSS declarations for .block--modifier__element
+///          }
+///      }
+///   }
+///
+@mixin _element($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+/// @example
+///     @include modifier('modifier') {
+///        // CSS declarations for .block--modifier
+///        @include element('element') {
+///           // CSS declarations for .block--modifier__element
+///        }
+///     }
+@mixin _modifier($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+///
+$elementSeparator: '__';
+
+///
+$modifierSeparator: '--';
+
+///
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, $modifierSeparator) {
+     @return true;
+  }
+  @else {
+     @return false;
+  }
+}
+
+///
+@function selectorToString($selector) {
+  $selector: inspect($selector); //cast to string
+  $selector: str-slice($selector, 2, -2); //remove brackets
+  @return $selector;
+}
+
+///
+@function getBlock($selector) {
+  $selector     : selectorToString($selector);
+  $modifierStart: str-index($selector, $modifierSeparator) - 1;
+  @return str-slice($selector, 0, $modifierStart);
+}
+
+///
+@mixin b($block) {
+  .#{$block} {
+    @content;
+  }
+}
+
+///
+@mixin e($element) {
+  $selector: &;
+  @if containsModifier($selector) {
+    $block: getBlock($selector);
+    @at-root {
+      #{$selector} {
+        #{$block+$elementSeparator+$element} {
+          @content;
+        }
+      }
+    }
+  }
+  @else {
+     @at-root{
+      #{$selector+$elementSeparator+$element} {
+        @content;
+      }
+    }
+  }
+}
+
+///
+@mixin m($modifier) {
+   @at-root{
+    #{ &}#{$modifierSeparator+$modifier} {
+      @content;
+    }
+  }
+}
+
+///
+@mixin modifier($modifier) {
+   @include m($modifier){
+    @content;
+  }
+}
+
+///
+@mixin element($element) {
+   @include e($element){
+    @content;
+  }
+}
+
+///
+@mixin block($block) {
+   @include b($block){
+    @content;
+  }
+}
+
+///
+@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
+   @font-face{
+    font-family: $font-family;
+    src        : url('#{$file-path}.eot');
+    src        : url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style : $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+     @font-face{
+      font-family: $font-family;
+      src        : url('#{$file-path}.svg##{$font-family}') format('svg');
+    }
+  }
+}
+
+///
+@mixin font-sizes($fs-map, $fs-breakpoints: $breakpoints) {
+   @each $fs-breakpoint, $fs-font-size in $fs-map{
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($primary, white, 75%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+    width : $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+  // For Internet Explorer
+  body {
+    scrollbar-face-color : $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+// Utilities
+// -------------------------
+
+/// Centerer mixin to center object on screen.
+/// @param {Boolean} $horizontal - Align horizontal
+/// @param {Boolean} $vertical - Align vertical
+/// @access public
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top      : 50%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+  }
+  @else if ($horizontal) {
+    left     : 50%;
+    transform: translate(-50%, 0);
+  }
+  @else if ($vertical) {
+    top      : 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+/// Font size percentage mixin.
+/// @param {Number} $sizeValue - The font-size
+/// @access public
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + em;
+}
+
+/// Clearfix
+/// @access public
+@mixin clearfix() {
+  &:after,
+  &:before {
+    display: table; // 2
+    content: ' '; // 1
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/// Colors
+/// @example
+/// $values: #ff0000, #00ff00, #0000ff;
+/// .primary {
+///   @include colors($values...);
+///}
+/// $value-map: (text: #00ff00, background: #0000ff, border: #ff0000);
+/// .secondary {
+///   @include colors($value-map...);
+/// }
+@mixin colors($text, $background, $border) {
+  color           : $text;
+  background-color: $background;
+  border          : 1px solid $border;
+}
+
+/// Box Shadows
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow   : $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow        : $shadows;
+}
+
+/// Linear-gradient
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin linear-gradient($color-from, $color-to) {
+  background-color: $color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-from), color-stop(100%,$color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient(top, $color-from 0%, $color-to 100%); // Chrome10+, Safari5.1+
+  background-image: -moz-linear-gradient(top, $color-from 0%, $color-to 100%); // FF3.6+
+  background-image: -ms-linear-gradient(top, $color-from 0%, $color-to 100%); // IE10+
+  background-image: -o-linear-gradient(top, $color-from 0%, $color-to 100%); // Opera 11.10+
+  background-image: linear-gradient(to bottom, $color-from 0%, $color-to 100%); // W3C
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#{$color-from}', endColorstr='#{$color-to}', GradientType=0 ); // IE6-9
+}
+
+/// Linear-gradient
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin directional-gradient($color-from, $color-to, $deg: 45deg) {
+  background-color: $color-from; // Old browsers
+  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0%,$color-from), color-stop(100%,$color-to)); // Chrome, Safari4+
+  background-image: -webkit-linear-gradient($deg, $color-from 0%, $color-to 100%); // Chrome10+, Safari5.1+
+  background-image: -moz-linear-gradient($deg, $color-from 0%, $color-to 100%); // FF3.6+
+  background-image: -ms-linear-gradient($deg, $color-from 0%, $color-to 100%); // IE10+
+  background-image: -o-linear-gradient($deg, $color-from 0%, $color-to 100%); // Opera 11.10+
+  background-image: linear-gradient($deg, $color-from 0%, $color-to 100%); // W3C
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#{$color-from}', endColorstr='#{$color-to}', GradientType=1 ); // IE6-9
+}
+
+/// Transform mixen
+/// @access public
+/// @param {String} $transform - The transform to apply
+@mixin transform($transform...) {
+  -webkit-transform: $transform;
+  -ms-transform    : $transform;
+  transform        : $transform;
+}
+
+// Transitions
+// --------------------------------------------------
+
+/// transition
+/// @access public
+/// @example scss - Using box-shadow
+///   @include transition(ease, .5s);
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition   : $transition;
+  transition        : $transition;
+}
+
+/// transition-property
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin transition-property($property...) {
+  -webkit-transition-property: $property;
+  -moz-transition-property   : $property;
+  transition-property        : $property;
+}
+
+/// transition-duration
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin transition-duration($duration...) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration   : $duration;
+  transition-duration        : $duration;
+}
+
+/// transition-timing-function
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin transition-timing-function($function...) {
+  -webkit-transition-timing-function: $function;
+  -moz-transition-timing-function   : $function;
+  transition-timing-function        : $function;
+}
+
+// Animations
+// --------------------------------------------------
+
+/// animation-name
+/// @access public
+/// @example scss - Using box-shadow
+///   @include animation-name('test');
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  -moz-animation-name   : $name;
+  animation-name        : $name;
+}
+
+/// animation-duration
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration   : $duration;
+  animation-duration        : $duration;
+}
+
+/// animation-direction
+/// @access public
+/// @example scss - Using box-shadow
+///   @include box-shadow(#000);
+@mixin animation-direction($direction) {
+  -webkit-animation-direction: $direction;
+  -moz-animation-direction   : $direction;
+  animation-direction        : $direction;
+}
+@mixin switch() {
+  .switch {
+    position       : relative;
+    display        : inline-block;
+    vertical-align : top;
+    box-sizing     : border-box;
+    background-clip: padding-box;
+    position       : relative;
+    overflow       : hidden;
+    font-size      : 17px;
+    padding        : 0 20px;
+    border         : none;
+    overflow       : visible;
+    width          : 51px;
+    height         : 32px;
+    z-index        : 0;
+    text-align     : left;
+
+    input {
+      position      : absolute;
+      overflow      : hidden;
+      right         : 0;
+      top           : 0;
+      left          : 0;
+      bottom        : 0;
+      padding       : 0;
+      border        : 0;
+      opacity       : 0.001;
+      z-index       : 1;
+      vertical-align: top;
+      outline       : none;
+      width         : 100%;
+      height        : 100%;
+      margin        : 0;
+      appearance    : none;
+      width         : 51px;
+      height        : 44px;
+      margin-top    : -6px;
+      top           : 0;
+      left          : 0;
+      transition    : all 0.2s linear;
+    }
+
+    @include element ('toggle') {
+      background-color          : #ddd;
+      position                  : absolute;
+      top                       : 0;
+      left                      : 0;
+      right                     : 0;
+      bottom                    : 0;
+      border-radius             : 30px;
+      transition-property       : all;
+      transition-duration       : 0.35s;
+      transition-timing-function: ease-out;
+
+      &:before {
+        box-sizing                : border-box;
+        background-clip           : padding-box;
+        position                  : absolute;
+        content                   : '';
+        border-radius             : 28px;
+        height                    : 28px;
+        width                     : 28px;
+        background-color          : #fff;
+        left                      : 2px;
+        top                       : 2px;
+        transition-property       : all;
+        transition-duration       : 0.35s;
+        transition-timing-function: cubic-bezier(0.5, 1.6, 0.5, 1);
+      }
+    }
+
+    input:checked + .toggle {
+      background-color: #4cd964;
+    }
+
+    input:checked + .toggle:before {
+      transform: translateX(18px);
+    }
+
+    input:not(:checked) + .toggle:before {
+      transform: translateX(0px);
+    }
+
+    input:disabled + .toggle {
+      opacity       : 0.3;
+      cursor        : default;
+      pointer-events: none;
+    }
+
+    &.table-row {
+      float       : right;
+      margin-top  : 6px;
+      margin-right: 10px;
+    }
+  }
+}
+@mixin range($bgColor, $borderColor) {
+  .range {
+    padding            : 0;
+    margin             : 0;
+    font               : inherit;
+    color              : inherit;
+    background         : transparent;
+    border             : none;
+    line-height        : normal;
+    box-sizing         : border-box;
+    background-clip    : padding-box;
+    vertical-align     : top;
+    outline            : none;
+    line-height        : 1;
+    border-radius      : 4px;
+    border             : none;
+    height             : 2px;
+    border-radius      : 0;
+    border-radius      : 3px;
+    background-image   : linear-gradient($borderColor, $borderColor);
+    background-position: left center;
+    background-size    : 100% 2px;
+    background-repeat  : no-repeat;
+    overflow           : hidden;
+    height             : 31px;
+
+    &::-moz-range-track {
+      position        : relative;
+      border          : none;
+      background-color: $borderColor;
+      height          : 2px;
+      border-radius   : 30px;
+      box-shadow      : none;
+      top             : 0;
+      margin          : 0;
+      padding         : 0;
+    }
+
+    &::-webkit-slider-thumb {
+      cursor          : pointer;
+      position        : relative;
+      height          : 29px;
+      width           : 29px;
+      background-color: #fff;
+      border          : 1px solid $borderColor;
+      border-radius   : 30px;
+      box-shadow      : none;
+      top             : 0;
+      margin          : 0;
+      padding         : 0;
+    }
+
+    &::-moz-range-thumb {
+      cursor          : pointer;
+      position        : relative;
+      height          : 29px;
+      width           : 29px;
+      background-color: #fff;
+      border          : 1px solid $borderColor;
+      border-radius   : 30px;
+      box-shadow      : none;
+      margin          : 0;
+      padding         : 0;
+    }
+
+    &::-webkit-slider-thumb:before {
+      position        : absolute;
+      top             : 13px;
+      right           : 0;
+      left            : -1024px;
+      width           : 1024px;
+      height          : 2px;
+      background-color: $bgColor;
+      content         : '';
+      margin          : 0;
+      padding         : 0;
+    }
+
+    &:disabled {
+      opacity       : 0.3;
+      cursor        : default;
+      pointer-events: none;
+    }
+  }
+
+}
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display    : block;
+    content    : '';
+    width      : 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > .content {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    right   : 0;
+    bottom  : 0;
+  }
+}

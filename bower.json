@@ -7,7 +7,7 @@
   "description": "A web component for px.",
   "repository": {
     "type": "git",
-    "url": "https://github.build.ge.com/PredixComponents/px-mobile-design.git"
+    "url": "https://github.com/PredixDev/px-mobile-design.git"
   },
   "keywords": [
     "px",
@@ -22,18 +22,13 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "latest"
+    "polymer": "latest",
+    "px-colors-design": "^0.2.16",
+    "px-spacing-design": "^0.3.7"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
-
-    "px-partials": "https://github.build.ge.com/PredixComponents/px-partials.git",
-    "px-drawer": "https://github.build.ge.com/PredixComponents/px-drawer.git",
-    "px-page": "https://github.build.ge.com/PredixComponents/px-page.git",
-    "px-navbar": "https://github.build.ge.com/PredixComponents/px-navbar.git",
-    "px-responsive-layouts": "https://github.build.ge.com/PredixComponents/px-responsive-layouts.git",
-    "px-action-sheet": "https://github.build.ge.com/PredixComponents/px-action-sheet.git",
-    "px-table-view": "https://github.build.ge.com/PredixComponents/px-table-view.git"
+    "px-responsive-layouts": "https://github.com/PredixDev/px-responsive-layouts.git"
   },
   "resolutions": {
     "web-animations-js": "~2.1.2",
