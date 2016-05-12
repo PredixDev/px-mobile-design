@@ -1,54 +1,6 @@
 @charset "UTF-8";
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 /*
-"palm" "screen and (max-width: 44.9375em)",
-"lap" "screen and (min-width: 45em) and (max-width: 63.9375em)",
-"lap-and-up" "screen and (min-width: 45em)",
-"portable" "screen and (max-width: 63.9375em)",
-"desk" "screen and (min-width: 64em)",
-*/
-/*
- * Copyright (c) 2014 GE Global Research. All rights reserved.
+ * Copyright (c) 2016 GE Global Research. All rights reserved.
  *
  * The copyright to the computer software herein is the property of
  * GE Global Research. The software may be used and/or copied only
@@ -237,6 +189,47 @@ html {
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Define grey = gray to avoid dev typos
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
 /* Links
    ========================================================================== */
 /**
@@ -349,9 +342,9 @@ a {
   margin: 0;
   clip: auto; }
 
-@media screen and (min-width: 320px) and (max-width: 33.9em) {
-  .a11y-xsmall,
-  .visuallyhidden-xsmall {
+@media screen and (max-width: 44.9375em) {
+  .a11y-palm,
+  .visuallyhidden-palm {
     position: absolute !important;
     overflow: hidden !important;
     width: 1px !important;
@@ -361,9 +354,9 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 374px) and (max-width: 425px) {
-  .a11y-small,
-  .visuallyhidden-small {
+@media screen and (min-width: 45em) and (max-width: 63.9375em) {
+  .a11y-lap,
+  .visuallyhidden-lap {
     position: absolute !important;
     overflow: hidden !important;
     width: 1px !important;
@@ -373,9 +366,9 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .a11y-medium,
-  .visuallyhidden-medium {
+@media screen and (min-width: 45em) {
+  .a11y-lap-and-up,
+  .visuallyhidden-lap-and-up {
     position: absolute !important;
     overflow: hidden !important;
     width: 1px !important;
@@ -385,9 +378,21 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1600px) {
-  .a11y-large,
-  .visuallyhidden-large {
+@media screen and (max-width: 63.9375em) {
+  .a11y-portable,
+  .visuallyhidden-portable {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important; } }
+
+@media screen and (min-width: 64em) {
+  .a11y-desk,
+  .visuallyhidden-desk {
     position: absolute !important;
     overflow: hidden !important;
     width: 1px !important;
@@ -414,158 +419,6 @@ a {
  */
 .invisible {
   visibility: hidden !important; }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../px-typography-design/GEInspMd.eot");
-  src: url("../px-typography-design/GEInspMd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspMd.woff") format("woff"), url("../px-typography-design/GEInspMd.ttf") format("truetype"), url("../px-typography-design/GEInspMd.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: normal;
-  font-style: italic;
-  src: url("../px-typography-design/GEInspMdIt.eot");
-  src: url("../px-typography-design/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspMdIt.woff") format("woff"), url("../px-typography-design/GEInspMdIt.ttf") format("truetype"), url("../px-typography-design/GEInspMdIt.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: bold;
-  font-style: normal;
-  src: url("../px-typography-design/GEInspBd.eot");
-  src: url("../px-typography-design/GEInspBd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspBd.woff") format("woff"), url("../px-typography-design/GEInspBd.ttf") format("truetype"), url("../px-typography-design/GEInspBd.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira";
-  font-weight: bold;
-  font-style: italic;
-  src: url("../px-typography-design/GEInspBI.eot");
-  src: url("../px-typography-design/GEInspBI.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspBI.woff") format("woff"), url("../px-typography-design/GEInspBI.ttf") format("truetype"), url("../px-typography-design/GEInspBI.svg#GE Inspira") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Sans";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../px-typography-design/GEInspiraSans-Regular-v01.eot");
-  src: url("../px-typography-design/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSans-Regular-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Sans";
-  font-weight: normal;
-  font-style: italic;
-  src: url("../px-typography-design/GEInspiraSans-Italic-v01.eot");
-  src: url("../px-typography-design/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSans-Italic-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Sans";
-  font-weight: bold;
-  font-style: normal;
-  src: url("../px-typography-design/GEInspiraSans-Bold-v01.eot");
-  src: url("../px-typography-design/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSans-Bold-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Sans";
-  font-weight: bold;
-  font-style: italic;
-  src: url("../px-typography-design/GEInspiraSans-BoldItalic-v01.eot");
-  src: url("../px-typography-design/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Serif";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../px-typography-design/GEInspiraSerif-Regular-v01.eot");
-  src: url("../px-typography-design/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSerif-Regular-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Serif";
-  font-weight: normal;
-  font-style: italic;
-  src: url("../px-typography-design/GEInspiraSerif-Italic-v01.eot");
-  src: url("../px-typography-design/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSerif-Italic-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Serif";
-  font-weight: bold;
-  font-style: normal;
-  src: url("../px-typography-design/GEInspiraSerif-Bold-v01.eot");
-  src: url("../px-typography-design/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSerif-Bold-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); }
-
-@font-face {
-  font-family: "GE Inspira Serif";
-  font-weight: bold;
-  font-style: italic;
-  src: url("../px-typography-design/GEInspiraSerif-BoldItalic-v01.eot");
-  src: url("../px-typography-design/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
-
-html {
-  font-family: "GE Inspira Sans", sans-serif; }
-
-:host {
-  font-family: "GE Inspira Sans", sans-serif; }
-
-/**
- * Font weights
- */
-.weight--light {
-  font-weight: 300 !important; }
-
-.weight--normal {
-  font-weight: 400 !important; }
-
-.weight--semibold {
-  font-weight: 600 !important; }
-
-/* Text-level semantics
-   ========================================================================== */
-/**
- * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
- */
-abbr[title] {
-  border-bottom: 1px dotted; }
-
-/**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
- */
-b,
-strong {
-  font-weight: bold; }
-
-/**
- * Address styling not present in Safari and Chrome.
- */
-dfn {
-  font-style: italic; }
-
-/**
- * Address styling not present in IE 8/9.
- */
-mark {
-  background: #ff0;
-  color: #000; }
-
-/**
- * Address inconsistent and variable font size in all browsers.
- */
-small {
-  font-size: 80%; }
-
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
-
-sup {
-  top: -0.5em; }
-
-sub {
-  bottom: -0.25em; }
 
 .flex {
   display: flex; }
@@ -663,6 +516,158 @@ sub {
 
 .viewport--full-height {
   min-height: 100vh; }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspMd.eot");
+  src: url("../px-typography-design/type/GEInspMd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspMd.woff") format("woff"), url("../px-typography-design/type/GEInspMd.ttf") format("truetype"), url("../px-typography-design/type/GEInspMd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspMdIt.eot");
+  src: url("../px-typography-design/type/GEInspMdIt.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspMdIt.woff") format("woff"), url("../px-typography-design/type/GEInspMdIt.ttf") format("truetype"), url("../px-typography-design/type/GEInspMdIt.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspBd.eot");
+  src: url("../px-typography-design/type/GEInspBd.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspBd.woff") format("woff"), url("../px-typography-design/type/GEInspBd.ttf") format("truetype"), url("../px-typography-design/type/GEInspBd.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspBI.eot");
+  src: url("../px-typography-design/type/GEInspBI.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspBI.woff") format("woff"), url("../px-typography-design/type/GEInspBI.ttf") format("truetype"), url("../px-typography-design/type/GEInspBI.svg#GE Inspira") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSans-Regular-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSans-Italic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSans-Bold-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSerif-Regular-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSerif-Italic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../px-typography-design/type/GEInspiraSerif-Bold-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: italic;
+  src: url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot");
+  src: url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("../px-typography-design/type/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
+
+html {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+:host {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+/**
+ * Font weights
+ */
+.weight--light {
+  font-weight: 300 !important; }
+
+.weight--normal {
+  font-weight: 400 !important; }
+
+.weight--semibold {
+  font-weight: 600 !important; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
 
 code {
   font-size: 1rem;
@@ -3033,147 +3038,6 @@ button.btn {
 .u-mv0 {
   margin-top: 0 !important;
   margin-bottom: 0 !important; }
-
-/**
-     * Padding helper classes.
-     *
-     * Add paddings.
-     */
-.u-p {
-  padding: 1rem !important; }
-
-.u-pt {
-  padding-top: 1rem !important; }
-
-.u-pr {
-  padding-right: 1rem !important; }
-
-.u-pb {
-  padding-bottom: 1rem !important; }
-
-.u-pl {
-  padding-left: 1rem !important; }
-
-.u-ph {
-  padding-right: 1rem !important;
-  padding-left: 1rem !important; }
-
-.u-pv {
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important; }
-
-/**
-     * Margin helper classes.
-     *
-     * Add margins.
-     */
-@media screen and (max-width: 47.9rem) {
-  .u-palm-m {
-    margin: 1rem !important; }
-  .u-palm-mt {
-    margin-top: 1rem !important; }
-  .u-palm-mr {
-    margin-right: 1rem !important; }
-  .u-palm-mb {
-    margin-bottom: 1rem !important; }
-  .u-palm-ml {
-    margin-left: 1rem !important; }
-  .u-palm-mh {
-    margin-right: 1rem !important;
-    margin-left: 1rem !important; }
-  .u-palm-mv {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important; } }
-
-@media screen and (min-width: 48rem) and (max-width: 63.9rem) {
-  .u-lap-m {
-    margin: 1rem !important; }
-  .u-lap-mt {
-    margin-top: 1rem !important; }
-  .u-lap-mr {
-    margin-right: 1rem !important; }
-  .u-lap-mb {
-    margin-bottom: 1rem !important; }
-  .u-lap-ml {
-    margin-left: 1rem !important; }
-  .u-lap-mh {
-    margin-right: 1rem !important;
-    margin-left: 1rem !important; }
-  .u-lap-mv {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important; } }
-
-@media screen and (min-width: 48rem) {
-  .u-lap-and-up-m {
-    margin: 1rem !important; }
-  .u-lap-and-up-mt {
-    margin-top: 1rem !important; }
-  .u-lap-and-up-mr {
-    margin-right: 1rem !important; }
-  .u-lap-and-up-mb {
-    margin-bottom: 1rem !important; }
-  .u-lap-and-up-ml {
-    margin-left: 1rem !important; }
-  .u-lap-and-up-mh {
-    margin-right: 1rem !important;
-    margin-left: 1rem !important; }
-  .u-lap-and-up-mv {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important; } }
-
-@media screen and (max-width: 63.9rem) {
-  .u-portable-m {
-    margin: 1rem !important; }
-  .u-portable-mt {
-    margin-top: 1rem !important; }
-  .u-portable-mr {
-    margin-right: 1rem !important; }
-  .u-portable-mb {
-    margin-bottom: 1rem !important; }
-  .u-portable-ml {
-    margin-left: 1rem !important; }
-  .u-portable-mh {
-    margin-right: 1rem !important;
-    margin-left: 1rem !important; }
-  .u-portable-mv {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important; } }
-
-@media screen and (min-width: 63.9rem) {
-  .u-desk-m {
-    margin: 1rem !important; }
-  .u-desk-mt {
-    margin-top: 1rem !important; }
-  .u-desk-mr {
-    margin-right: 1rem !important; }
-  .u-desk-mb {
-    margin-bottom: 1rem !important; }
-  .u-desk-ml {
-    margin-left: 1rem !important; }
-  .u-desk-mh {
-    margin-right: 1rem !important;
-    margin-left: 1rem !important; }
-  .u-desk-mv {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important; } }
-
-@media screen and (min-width: 100%) {
-  .u-desk-wide-m {
-    margin: 1rem !important; }
-  .u-desk-wide-mt {
-    margin-top: 1rem !important; }
-  .u-desk-wide-mr {
-    margin-right: 1rem !important; }
-  .u-desk-wide-mb {
-    margin-bottom: 1rem !important; }
-  .u-desk-wide-ml {
-    margin-left: 1rem !important; }
-  .u-desk-wide-mh {
-    margin-right: 1rem !important;
-    margin-left: 1rem !important; }
-  .u-desk-wide-mv {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important; } }
 
 /*------------------------------------*    #CLEARFIX
 \*------------------------------------*/
