@@ -4,21 +4,58 @@
 // framework that we have some responsive settings.
 $inuit-responsive-settings: true;
 
-$bp-xsmall--min: 320px;
-$bp-xsmall--max: 568px;
+//xs
+$bp-xs--min: 0px;
+$bp-xs--max: 33.9em;
 //small
-$bp-small--min: 375px;
-$bp-small--max: 736px;
+$bp-sm--min: 34em;
+$bp-sm--max: 47.9em;
 //medium
-$bp-medium--min: 768px;
-$bp-medium--max: 1024px;
+$bp-md--min: 48em;
+$bp-md--max: 61.9em;
 //large
-$bp-large--min: 1200px;
-$bp-large--max: 1600px;
-$newBreakpoints: ( "xsmall" "screen and (min-width: #{$bp-xsmall--min}) and (max-width: #{$bp-xsmall--max})", "small" "screen and (min-width: #{$bp-small--min}) and (max-width: #{$bp-small--max})", "medium" "screen and (min-width: #{$bp-medium--min}) and (max-width: #{$bp-medium--max})", "large" "screen and (min-width: #{$bp-large--min}) and (max-width: #{$bp-large--max})" );
+$bp-lg--min: 62em;
+$bp-lg--max: 74.9;
+//xlarge
+$bp-xl--min: 75em;
+//$bp-xl--max: 75em;
+
+//Existing breakpoints
+$breakpoints: (
+    "palm"          "screen and (max-width: 44.9375em)",
+    "lap"           "screen and (min-width: 45em) and (max-width: 63.9375em)",
+    "lap-and-up"    "screen and (min-width: 45em)",
+    "portable"      "screen and (max-width: 63.9375em)",
+    "desk"          "screen and (min-width: 64em)",
+    "retina"        "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+);
+
+//Min breakpoints
+$minBreakpoints: (
+  "xs"      "screen and (min-width: #{$bp-xs--min})",
+  "sm"      "screen and (min-width: #{$bp-sm--min})",
+  "md"      "screen and (min-width: #{$bp-md--min})",
+  "lg"      "screen and (min-width: #{$bp-lg--min})",
+  "xl"      "screen and (min-width: #{$bp-xl--min})"
+);
+
+//Max breakpoints
+$maxBreakpoints: (
+  "xs"      "screen and (max-width: #{$bp-xs--max})",
+  "sm"       "screen and (max-width: #{$bp-sm--max})",
+  "md"      "screen and (max-width: #{$bp-md--max})",
+  "lg"       "screen and (max-width: #{$bp-lg--max})"
+  );
+
+
 @debug "px-mobile-designs - $newBreakpoints = #{$newBreakpoints}";
+
+
 @import "inuit-responsive-settings/_settings.responsive.scss";
+
+
 $breakpoints: join($breakpoints, $newBreakpoints);
+
 @debug 'px-mobile-designs - $breakpoints = #{$breakpoints}';
 @import "inuit-responsive-tools/_tools.responsive.scss";
 
