@@ -35,7 +35,9 @@ $inuit-enable-margins--none     : true;
 $inuit-enable-responsive-margins: true;
 $inuit-enable-margins           : true;
 $inuit-enable-paddings          : true;
+@import "mixins";
 @import "variables";
+
 @import "inuit-clearfix/_trumps.clearfix.scss";
 @import "px-spacing-design/_trumps.spacing.scss";
 @import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";

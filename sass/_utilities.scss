@@ -1,4 +1,10 @@
-@import "_variables.scss";
+@import "variables";
+@import "mixins";
+
+
+
+
+
 
 ///Display
 $displays: none, block, inline-block, inline, flex;
