@@ -9,49 +9,8 @@
  * under which the software has been supplied.
  */
 
-/// Generic
-@import "px-normalize-design/_generic.normalize.scss";
-@import "px-box-sizing-design/_generic.box-sizing.scss";
-@import "px-helpers-design/_generic.helpers.scss";
-@import "px-defaults-design/_settings.defaults.scss";
 
-//$inuit-webfont-path             : '../px-typography-design';
-
-/// Base
-//@import "px-typography-design/_base.typography.scss";
-@import "px-flexbox-design/_base.flexbox.scss";
-@import "px-viewport-design/_base.viewport.scss";
-@import "px-buttons-design/src/style.scss";
-
-/// Trumps
-/// @type List [default] - By default we will create wholes, halves, thirds, quarters, and sixths. Predefine this Map to override.
-$inuit-widths-columns-responsive: ( 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12 );
-
-// These can be invoked later on via the `media-query()` mixin found in
-// `_tools.responsive`.
-$layout-min-height              : 100vh;
-
-$inuit-enable-margins--none     : true;
-$inuit-enable-responsive-margins: true;
-$inuit-enable-margins           : true;
-$inuit-enable-paddings          : true;
-@import "mixins";
-@import "variables";
-
-@import "inuit-clearfix/_trumps.clearfix.scss";
-@import "px-spacing-design/_trumps.spacing.scss";
-@import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
-@import "px-widths-design/_trumps.widths.scss";
-@import "px-widths-responsive-design/_trumps.widths-responsive.scss";
-
-//@import "px-action-sheet/sass/px-action-sheet";
-//@import "px-navbar/sass/px-navbar-sketch";
-//@import "px-layout-design/_objects.layout.scss";
-//@import "px-tab-bar/sass/px-tab-bar-predix";
-//@import "px-table-view/sass/px-table-view-sketch";
-//@include switch();
-//@include range($select-default, $gray5);
-//@import "animate";
-@import "colors";
-@import "helpers";
-@import "utilities";
+html, body{
+  padding: 0;
+  margin: 0;
+}

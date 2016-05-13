@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
-    "px-responsive-layouts": "https://github.com/PredixDev/px-responsive-layouts.git",
     "inuit-responsive-tools": "^0.1.3"
   }
 }

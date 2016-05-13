@@ -5,8 +5,8 @@
 // adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 544px,
+  xs: 330px,
+  sm: 480px,
   md: 768px,
   lg: 992px,
   xl: 1200px
@@ -18,28 +18,28 @@ $inuit-responsive-settings: true;
 
 //xs
 $bp-xs--min: 0px;
-$bp-xs--max: 33.9em;
+$bp-xs--max: 320px;
 //small
-$bp-sm--min: 34em;
-$bp-sm--max: 47.9em;
+$bp-sm--min: 375px;
+$bp-sm--max: 425px;
 //medium
-$bp-md--min: 48em;
-$bp-md--max: 61.9em;
+$bp-md--min: 768px;
+$bp-md--max: 979px;
 //large
-$bp-lg--min: 62em;
-$bp-lg--max: 992px;
+$bp-lg--min: 1024px;
+$bp-lg--max: 1200px;
 //xlarge
-$bp-xl--min: 75em;
-$bp-xl--max: 1200px;
+$bp-xl--min: 1280px;
+$bp-xl--max: 1600px;
 
 //Existing breakpoints
 $breakpoints: (
-"palm" "screen and (max-width: 44.9375em)",
-"lap" "screen and (min-width: 45em) and (max-width: 63.9375em)",
-"lap-and-up" "screen and (min-width: 45em)",
-"portable" "screen and (max-width: 63.9375em)",
-"desk" "screen and (min-width: 64em)",
-"retina" "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)" );
+  "palm" "screen and (max-width: 44.9375em)",
+  "lap" "screen and (min-width: 45em) and (max-width: 63.9375em)",
+  "lap-and-up" "screen and (min-width: 45em)",
+  "portable" "screen and (max-width: 63.9375em)",
+  "desk" "screen and (min-width: 64em)",
+  "retina" "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)" );
 
 //Min breakpoints
 $minBreakpoints: (
@@ -58,11 +58,12 @@ $maxBreakpoints: (
   "xl" "screen and (max-width: #{$bp-xl--max})"
 );
 $newBreakpoints: (
-  "xs" "screen and (min-width: #{$bp-xs--min}) and (max-width: #{$bp-xs--max})",
+  "xs" "screen and (max-width: #{$bp-xs--max})",
+
   "sm" "screen and (min-width: #{$bp-sm--min}) and (max-width: #{$bp-sm--max})",
   "md" "screen and (min-width: #{$bp-md--min}) and (max-width: #{$bp-md--max})",
   "lg" "screen and (min-width: #{$bp-lg--min}) and (max-width: #{$bp-lg--max})",
-  "xl" "screen and (min-width: #{$bp-xl--min}) and (max-width: #{$bp-xl--max})"
+  "xl" "screen and (min-width: #{$bp-xl--min})"
 );
 
 //@debug "px-mobile-designs - $minBreakpoints = #{$minBreakpoints}";
