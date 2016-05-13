@@ -4,67 +4,37 @@
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-$grid-breakpoints: (
-  xs: 330px,
-  sm: 480px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-) !default;
+$grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !default;
 // Extra small devices (portrait phones, less than 34em)
 // If we have included this file, set a variable to tell the rest of the
 // framework that we have some responsive settings.
 $inuit-responsive-settings: true;
 
 //xs
-$bp-xs--min: 0px;
-$bp-xs--max: 320px;
+$bp-xs--min: 0;
+$bp-xs--max: 360px;
 //small
 $bp-sm--min: 375px;
-$bp-sm--max: 425px;
+$bp-sm--max: 736px;
 //medium
 $bp-md--min: 768px;
-$bp-md--max: 979px;
+$bp-md--max: 1024px;
 //large
-$bp-lg--min: 1024px;
+$bp-lg--min: 1080px;
 $bp-lg--max: 1200px;
 //xlarge
 $bp-xl--min: 1280px;
-$bp-xl--max: 1600px;
+$bp-xl--max: 1980px;
 
 //Existing breakpoints
-$breakpoints: (
-  "palm" "screen and (max-width: 44.9375em)",
-  "lap" "screen and (min-width: 45em) and (max-width: 63.9375em)",
-  "lap-and-up" "screen and (min-width: 45em)",
-  "portable" "screen and (max-width: 63.9375em)",
-  "desk" "screen and (min-width: 64em)",
-  "retina" "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)" );
+$breakpoints: ( "palm" "screen and (max-width: 44.9375em)", "lap" "screen and (min-width: 45em) and (max-width: 63.9375em)", "lap-and-up" "screen and (min-width: 45em)", "portable" "screen and (max-width: 63.9375em)", "desk" "screen and (min-width: 64em)", "retina" "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)" );
 
 //Min breakpoints
-$minBreakpoints: (
-"xs" "screen and (min-width: #{$bp-xs--min})",
-"sm" "screen and (min-width: #{$bp-sm--min})",
-"md" "screen and (min-width: #{$bp-md--min})",
-"lg" "screen and (min-width: #{$bp-lg--min})",
-"xl" "screen and (min-width: #{$bp-xl--min})" );
+$minBreakpoints: ( "xs" "screen and (min-width: #{$bp-xs--min})", "sm" "screen and (min-width: #{$bp-sm--min})", "md" "screen and (min-width: #{$bp-md--min})", "lg" "screen and (min-width: #{$bp-lg--min})", "xl" "screen and (min-width: #{$bp-xl--min})" );
 
 //Max breakpoints
-$maxBreakpoints: (
-  "xs" "screen and (max-width: #{$bp-xs--max})",
-  "sm" "screen and (max-width: #{$bp-sm--max})",
-  "md" "screen and (max-width: #{$bp-md--max})",
-  "lg" "screen and (max-width: #{$bp-lg--max})",
-  "xl" "screen and (max-width: #{$bp-xl--max})"
-);
-$newBreakpoints: (
-  "xs" "screen and (max-width: #{$bp-xs--max})",
-
-  "sm" "screen and (min-width: #{$bp-sm--min}) and (max-width: #{$bp-sm--max})",
-  "md" "screen and (min-width: #{$bp-md--min}) and (max-width: #{$bp-md--max})",
-  "lg" "screen and (min-width: #{$bp-lg--min}) and (max-width: #{$bp-lg--max})",
-  "xl" "screen and (min-width: #{$bp-xl--min})"
-);
+$maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen and (max-width: #{$bp-sm--max})", "md" "screen and (max-width: #{$bp-md--max})", "lg" "screen and (max-width: #{$bp-lg--max})", "xl" "screen and (max-width: #{$bp-xl--max})" );
+$newBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen and (min-width: #{$bp-sm--min}) and (max-width: #{$bp-sm--max})", "md" "screen and (min-width: #{$bp-md--min}) and (max-width: #{$bp-md--max})", "lg" "screen and (min-width: #{$bp-lg--min}) and (max-width: #{$bp-lg--max})", "xl" "screen and (min-width: #{$bp-xl--min})" );
 
 //@debug "px-mobile-designs - $minBreakpoints = #{$minBreakpoints}";
 @import "inuit-responsive-settings/_settings.responsive.scss";
@@ -93,7 +63,7 @@ $breakpoints: join($breakpoints, $newBreakpoints);
     }
   }
   @if $breakpoint-found == false {
-     @warn 'Error Breakpoint #{$mq} does not exist.';
+     @warn'Error Breakpoint #{$mq} does not exist.';
   }
 }
 
@@ -142,11 +112,12 @@ $breakpoints: join($breakpoints, $newBreakpoints);
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
   @if $min {
-    @media (min-width: $min) {
+     @media (min-width: $min){
       @content;
     }
-  } @else {
-    @content;
+  }
+  @else {
+     @content;
   }
 }
 
@@ -155,11 +126,12 @@ $breakpoints: join($breakpoints, $newBreakpoints);
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
   @if $max {
-    @media (max-width: $max) {
+     @media (max-width: $max){
       @content;
     }
-  } @else {
-    @content;
+  }
+  @else {
+     @content;
   }
 }
 
@@ -167,9 +139,9 @@ $breakpoints: join($breakpoints, $newBreakpoints);
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
 @mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
-  @include media-breakpoint-up($name, $breakpoints) {
+   @include media-breakpoint-up($name, $breakpoints){
     @include media-breakpoint-down($name, $breakpoints) {
-      @content;
+       @content;
     }
   }
 }
@@ -177,9 +149,9 @@ $breakpoints: join($breakpoints, $newBreakpoints);
 // Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
 @mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
-  @include media-breakpoint-up($lower, $breakpoints) {
+   @include media-breakpoint-up($lower, $breakpoints){
     @include media-breakpoint-down($upper, $breakpoints) {
-      @content;
+       @content;
     }
   }
 }
@@ -203,7 +175,7 @@ $breakpoints: join($breakpoints, $newBreakpoints);
 ///// Resonsive Utils
 /////
 @mixin responsiveUtils($grid-breakpoints:$grid-breakpoints) {
-  @content;
+   @content;
   //
   // Visibility utilities
   //
@@ -213,13 +185,13 @@ $breakpoints: join($breakpoints, $newBreakpoints);
   }
 
   // Responsive visibility utilities
-
   @each $bp in map-keys($grid_breakpoints) {
     .hidden-#{$bp}-up {
       @include media-breakpoint-up($bp) {
         display: none !important;
       }
     }
+
     .hidden-#{$bp}-down {
       @include media-breakpoint-down($bp) {
         display: none !important;
@@ -645,7 +617,7 @@ $modifierSeparator: '--';
       bottom        : 0;
       padding       : 0;
       border        : 0;
-      opacity       : 0.001;
+      opacity       : .001;
       z-index       : 1;
       vertical-align: top;
       outline       : none;
@@ -658,7 +630,7 @@ $modifierSeparator: '--';
       margin-top    : -6px;
       top           : 0;
       left          : 0;
-      transition    : all 0.2s linear;
+      transition    : all .2s linear;
     }
 
     @include element ('toggle') {
@@ -670,7 +642,7 @@ $modifierSeparator: '--';
       bottom                    : 0;
       border-radius             : 30px;
       transition-property       : all;
-      transition-duration       : 0.35s;
+      transition-duration       : .35s;
       transition-timing-function: ease-out;
 
       &:before {
@@ -685,7 +657,7 @@ $modifierSeparator: '--';
         left                      : 2px;
         top                       : 2px;
         transition-property       : all;
-        transition-duration       : 0.35s;
+        transition-duration       : .35s;
         transition-timing-function: cubic-bezier(0.5, 1.6, 0.5, 1);
       }
     }
@@ -703,7 +675,7 @@ $modifierSeparator: '--';
     }
 
     input:disabled + .toggle {
-      opacity       : 0.3;
+      opacity       : .3;
       cursor        : default;
       pointer-events: none;
     }
@@ -794,7 +766,7 @@ $modifierSeparator: '--';
     }
 
     &:disabled {
-      opacity       : 0.3;
+      opacity       : .3;
       cursor        : default;
       pointer-events: none;
     }
