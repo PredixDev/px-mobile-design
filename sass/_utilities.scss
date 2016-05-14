@@ -81,28 +81,26 @@ $displays: none, block, inline-block, inline, flex;
   overflow-y: auto;
 }
 // TODO: Layouts
-.fluid,
-.full,
-.full-width {
+.#{$utility-prefix}fluid,
+.#{$utility-prefix}full,
+.#{$utility-prefix}full-width {
   width: 100%;
 }
 // Floats
 // ------------------------------------------
-.float {
-  &.right,
-  .fr {
+.#{$utility-prefix}float {
+  &.right{
     float: right !important;
   }
 
-  &.left,
-  .fl {
+  &.left{
     float: left !important;
   }
 }
 // Images
 // ------------------------------------------
 img {
-  &.full-width {
+  &.#{$utility-prefix}full-width {
     width    : 100%;
     max-width: 100%;
   }
@@ -120,25 +118,24 @@ img {
 
 // Borders
 // ------------------------------------------
-.no-border {
+.#{$utility-prefix}no-border {
   border: 0 !important;
 }
 
 // Text decoration
 // ------------------------------------------
 .t-d-u,
-.text-decoration-underline {
+.text-decoration--underline {
   text-decoration: underline;
 }
 
 .t-d-s,
-.text-decoration-strike {
+.text-decoration--strike {
   text-decoration: line-through;
 }
 
-.no-t-d,
-.no-text-decoration,
-.text-decoration-none {
+
+.text-decoration--none {
   text-decoration: none;
 }
 // Font Colors
@@ -188,14 +185,14 @@ a.u-color--white {
   color: $white !important;
 }
 
-.hover-btn-outline {
+.#{$utility-prefix}hover-btn-outline {
   &:hover {
     background: transparent;
     border    : 1px solid;
   }
 }
 
-.hover-btn-outline-reverse {
+.#{$utility-prefix}hover-btn-outline-reverse {
   &:hover {
     background: auto;
     border    : 1px solid transparent;
@@ -203,72 +200,73 @@ a.u-color--white {
 }
 // Hover Opacity
 // ------------------------------------------
-.hover-opacity-0 {
+.#{$utility-prefix}hover-opacity-0 {
   &:hover {
     opacity: 0;
   }
 }
 
-.hover-opacity-25 {
+.#{$utility-prefix}hover-opacity-25 {
   &:hover {
     opacity: 0.25;
   }
 }
 
-.hover-opacity-50 {
+.#{$utility-prefix}hover-opacity-50 {
   &:hover {
     opacity: 0.5;
   }
 }
 
-.hover-opacity-75 {
+.#{$utility-prefix}hover-opacity-75 {
   &:hover {
     opacity: 0.75;
   }
 }
 
-.hover-opacity-100 {
+.#{$utility-prefix}hover-opacity-100 {
   &:hover {
     opacity: 1;
   }
 }
 // Hover Scale
 // ------------------------------------------
-.hover-scale-0 {
+.#{$utility-prefix}hover-scale-0 {
   &:hover {
     transform: scale(0);
   }
 }
 
-.hover-scale-25 {
+.#{$utility-prefix}hover-scale-25 {
   &:hover {
     transform: scale(.25);
   }
 }
 
-.hover-scale-50 {
+.#{$utility-prefix}hover-scale-50 {
   &:hover {
     transform: scale(0.5);
   }
 }
 
-.hover-scale-100 {
+.#{$utility-prefix}hover-scale-100 {
   &:hover {
     transform: scale(1);
   }
 }
 
-.hover-scale-105 {
+.#{$utility-prefix}hover-scale-105 {
   &:hover {
     transform: scale(1.05);
   }
 }
 
-.hover-scale-125 {
+.#{$utility-prefix}hover-scale-125 {
   &:hover {
     transform: scale(1.25);
   }
 }
+
 /* ARIA + Screen reader assists */
 .sr-only {
   height  : 1px;

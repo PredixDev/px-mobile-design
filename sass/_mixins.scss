@@ -1,10 +1,16 @@
 
+@import 'variables';
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-$grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !default;
+$grid-breakpoints: (
+xs: 330px,
+sm: 480px,
+md: 768px,
+lg: 992px,
+xl: 1200px ) !default;
 // Extra small devices (portrait phones, less than 34em)
 // If we have included this file, set a variable to tell the rest of the
 // framework that we have some responsive settings.
@@ -18,9 +24,9 @@ $bp-sm--min: 375px;
 $bp-sm--max: 736px;
 //medium
 $bp-md--min: 768px;
-$bp-md--max: 1024px;
+$bp-md--max: 1023px;
 //large
-$bp-lg--min: 1080px;
+$bp-lg--min: 1024px;
 $bp-lg--max: 1200px;
 //xlarge
 $bp-xl--min: 1280px;
@@ -40,7 +46,6 @@ $newBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen a
 @import "inuit-responsive-settings/_settings.responsive.scss";
 
 $breakpoints: join($breakpoints, $newBreakpoints);
-
 //@debug 'px-mobile-designs - $breakpoints = #{$breakpoints}';
 @import "inuit-responsive-tools/_tools.responsive.scss";
 
