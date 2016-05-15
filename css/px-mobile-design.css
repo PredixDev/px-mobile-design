@@ -438,7 +438,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .a11y-md,
   .visuallyhidden-md {
     position: absolute !important;
@@ -450,7 +450,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 1080px) and (max-width: 1200px) {
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
   .a11y-lg,
   .visuallyhidden-lg {
     position: absolute !important;
