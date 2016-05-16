@@ -1,3 +1,5 @@
+
+@import "px-defaults-design/_settings.defaults.scss";
 @import "px-colors-design/_settings.colors.scss";
 //Prefix for utility classes
 $utility-prefix: 'u-';
@@ -12,5 +14,3 @@ $padding-step  : 5;
 
 //Global Namespace
 $namespace     : 'px';
-
-$grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px );

@@ -1,9 +1,18 @@
+@import 'px-functions-design/_tools.functions.scss';
+///The following is borrowed from Bootstrap 4's mixins
+
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-$grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !default;
+$grid-breakpoints: (
+  xs: calculateRem(round(330px)),
+  sm: calculateRem(round(480px)),
+  md: calculateRem(round(768px)),
+  lg: calculateRem(round(992px)),
+  xl: calculateRem(round(1200px))
+) !default;
 ///
 ///-----------------------
 /// Mixins
@@ -12,18 +21,18 @@ $grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !d
 
   $breakpoint-found: false;
   @each $breakpoint in $_breakbpoints {
-    $alias    : nth($breakpoint, 1);
+    $alias: nth($breakpoint, 1);
     $condition: nth($breakpoint, 2);
     @if $mq == $alias and $condition {
-       @debug"min-max-media-query - #{$alias} - #{$condition}";
+      @debug "min-max-media-query - #{$alias} - #{$condition}";
       $breakpoint-found: true;
       @media #{$condition} {
-         @content;
+        @content;
       }
     }
   }
   @if $breakpoint-found == false {
-     @warn 'Error Breakpoint #{$mq} does not exist.';
+    @warn 'Error Breakpoint #{$mq} does not exist.';
   }
 }
 
@@ -64,21 +73,20 @@ $grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !d
 //    767px
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
   $next: breakpoint-next($name, $breakpoints);
-  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+  @return if($next, breakpoint-min($next, $breakpoints) - calculateRem(round(1px)), null);
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
-  @debug"media-breakpoint-up - #{$name} - #{$min}";
+  @debug "media-breakpoint-up - #{$name} - #{$min}";
   @if $min {
-     @media (min-width: $min){
+    @media (min-width: $min) {
       @content;
     }
-  }
-  @else {
-     @content;
+  } @else {
+    @content;
   }
 }
 
@@ -86,14 +94,13 @@ $grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !d
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
-  @debug"media-breakpoint-down - #{$name} - #{$max}";
+  @debug "media-breakpoint-down - #{$name} - #{$max}";
   @if $max {
-     @media (max-width: $max){
+    @media (max-width: $max) {
       @content;
     }
-  }
-  @else {
-     @content;
+  } @else {
+    @content;
   }
 }
 
@@ -101,9 +108,9 @@ $grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !d
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
 @mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
-   @include media-breakpoint-up($name, $breakpoints){
+  @include media-breakpoint-up($name, $breakpoints) {
     @include media-breakpoint-down($name, $breakpoints) {
-       @content;
+      @content;
     }
   }
 }
@@ -111,12 +118,13 @@ $grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !d
 // Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
 @mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
-   @include media-breakpoint-up($lower, $breakpoints){
+  @include media-breakpoint-up($lower, $breakpoints) {
     @include media-breakpoint-down($upper, $breakpoints) {
-       @content;
+      @content;
     }
   }
 }
+
 /// Mixin to manage responsive breakpoints
 /// @param {String} $breakpoint - Breakpoint name
 /// @require $breakpoints
@@ -129,8 +137,8 @@ $grid-breakpoints: ( xs: 330px, sm: 480px, md: 768px, lg: 992px, xl: 1200px ) !d
 ///   }
 /// @access public
 @mixin media-breakpoint($media) {
-  @debug"media-breakpoint - #{$media}";
-   @include min-max-media-query($breakpoints, $media){
+
+  @include min-max-media-query($breakpoints, $media) {
     @content;
   }
 }

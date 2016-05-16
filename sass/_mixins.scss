@@ -1,4 +1,6 @@
 @import 'variables';
+@import 'px-functions-design/_tools.functions.scss';
+
 
 @import 'mixins/bem';
 @import 'mixins/media-query';
@@ -10,19 +12,19 @@ $inuit-responsive-settings: true;
 
 //xs
 $bp-xs--min: 0;
-$bp-xs--max: 360px;
+$bp-xs--max: calculateRem(360px);
 //small
-$bp-sm--min: 375px;
-$bp-sm--max: 736px;
+$bp-sm--min: calculateRem(375px);
+$bp-sm--max: calculateRem(736px);
 //medium
-$bp-md--min: 768px;
-$bp-md--max: 1023px;
+$bp-md--min: calculateRem(768px);
+$bp-md--max: calculateRem(1023px);
 //large
-$bp-lg--min: 1024px;
-$bp-lg--max: 1200px;
+$bp-lg--min: calculateRem(1024px);
+$bp-lg--max: calculateRem(1200px);
 //xlarge
-$bp-xl--min: 1280px;
-$bp-xl--max: 1980px;
+$bp-xl--min: calculateRem(1280px);
+$bp-xl--max: calculateRem(1980px);
 
 //Existing breakpoints
 $breakpoints: ( "palm" "screen and (max-width: 44.9375em)", "lap" "screen and (min-width: 45em) and (max-width: 63.9375em)", "lap-and-up" "screen and (min-width: 45em)", "portable" "screen and (max-width: 63.9375em)", "desk" "screen and (min-width: 64em)", "retina" "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)" );

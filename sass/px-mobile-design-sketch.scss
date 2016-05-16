@@ -7,27 +7,26 @@
  * with the terms and conditions stipulated in the agreement/contract
  * under which the software has been supplied.
  */
-
 @charset "utf-8";
 @import "variables";
 @import "mixins";
-
 
 /// Generic
 @import "px-normalize-design/_generic.normalize.scss";
 @import "px-box-sizing-design/_generic.box-sizing.scss";
 @import "px-helpers-design/_generic.helpers.scss";
-@import "px-defaults-design/_settings.defaults.scss";
+
+$viewport-margin: auto;
+//$desk-wide-width: 80rem;
+$desk-wide-max-width: 90rem;
 
 /// Base
-@import "px-typography-design/_base.typography.scss";
 @import "px-flexbox-design/_base.flexbox.scss";
 @import "px-viewport-design/_base.viewport.scss";
-@import "px-buttons-design/src/style.scss";
 
 /// Trumps
 $inuit-widths-columns-responsive: ( 1, 2, 3, 4, 6, 7, 8 );
-$layout-min-height              : 100vh;
+//$layout-min-height              : 100vh;
 
 $inuit-enable-margins--none     : true;
 $inuit-enable-responsive-margins: true;
@@ -41,11 +40,12 @@ $inuit-enable-paddings          : true;
 @import "px-widths-responsive-design/_trumps.widths-responsive.scss";
 
 
-/// Component
-@import 'px-mobile-design-predix.scss';
-
-
 /// Other
 @import "colors";
 @import "helpers";
 @import "utilities";
+
+/// Component
+@import 'px-mobile-design-predix.scss';
+
+
