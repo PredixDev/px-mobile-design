@@ -1,47 +1,138 @@
 @import 'variables';
-@import 'px-functions-design/_tools.functions.scss';
-
-
 @import 'mixins/bem';
-@import 'mixins/media-query';
-
-// Extra small devices (portrait phones, less than 34em)
-// If we have included this file, set a variable to tell the rest of the
-// framework that we have some responsive settings.
-$inuit-responsive-settings: true;
-
-//xs
-$bp-xs--min: 0;
-$bp-xs--max: calculateRem(360px);
-//small
-$bp-sm--min: calculateRem(375px);
-$bp-sm--max: calculateRem(736px);
-//medium
-$bp-md--min: calculateRem(768px);
-$bp-md--max: calculateRem(1023px);
-//large
-$bp-lg--min: calculateRem(1024px);
-$bp-lg--max: calculateRem(1200px);
-//xlarge
-$bp-xl--min: calculateRem(1280px);
-$bp-xl--max: calculateRem(1980px);
-
-//Existing breakpoints
-$breakpoints: ( "palm" "screen and (max-width: 44.9375em)", "lap" "screen and (min-width: 45em) and (max-width: 63.9375em)", "lap-and-up" "screen and (min-width: 45em)", "portable" "screen and (max-width: 63.9375em)", "desk" "screen and (min-width: 64em)", "retina" "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)" );
 
 //Min breakpoints
 $minBreakpoints: ( "xs" "screen and (min-width: #{$bp-xs--min})", "sm" "screen and (min-width: #{$bp-sm--min})", "md" "screen and (min-width: #{$bp-md--min})", "lg" "screen and (min-width: #{$bp-lg--min})", "xl" "screen and (min-width: #{$bp-xl--min})" );
-
 //Max breakpoints
-$maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen and (max-width: #{$bp-sm--max})", "md" "screen and (max-width: #{$bp-md--max})", "lg" "screen and (max-width: #{$bp-lg--max})", "xl" "screen and (max-width: #{$bp-xl--max})" );
-$newBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen and (min-width: #{$bp-sm--min}) and (max-width: #{$bp-sm--max})", "md" "screen and (min-width: #{$bp-md--min}) and (max-width: #{$bp-md--max})", "lg" "screen and (min-width: #{$bp-lg--min}) and (max-width: #{$bp-lg--max})", "xl" "screen and (min-width: #{$bp-xl--min})" );
-
+$maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen and (max-width: #{$bp-sm--max})", "md" "screen and (max-width: #{$bp-md--max})", "lg" "screen and (max-width: #{$bp-lg--max})", "xl" "screen and (max-width: #{$bp-xl--max})" ) !default;
 //@debug "px-mobile-designs - $minBreakpoints = #{$minBreakpoints}";
-@import "inuit-responsive-settings/_settings.responsive.scss";
 
-$breakpoints: join($breakpoints, $newBreakpoints);
-//@debug 'px-mobile-designs - $breakpoints = #{$breakpoints}';
-@import "inuit-responsive-tools/_tools.responsive.scss";
+$grid-breakpoints: (
+  xs: calculateRem(round(330px)),
+  sm: calculateRem(round(480px)),
+  md: calculateRem(round(768px)),
+  lg: calculateRem(round(992px)),
+  xl: calculateRem(round(1200px))
+) !default;
+
+
+///
+///-----------------------
+/// Mixins
+@mixin min-max-media-query($mq) {
+  @include media-query($mq){
+    @content;
+  }
+}
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// @example
+///   .selector {
+///     color: red;
+///     @include respond-to('small') {
+///       color: blue;
+///     }
+///   }
+/// @access public
+@import 'inuit-responsive-tools/_tools.responsive.scss';
+@mixin media-breakpoint($media) {
+  @debug"media-breakpoint - #{$media}";
+  @include media-query($media){
+    @content;
+  }
+}
+
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 544px, md: 768px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 544px, md: 768px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 544px, md: 768px))
+//    544px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.1.
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 544px, md: 768px))
+//    767px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - calculateRem(round(1px)), null);
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @debug "media-breakpoint-up - #{$name} - (min-width: #{$min})";
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @debug "media-breakpoint-down - #{$name} - (max-width: #{$max})";
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-up($name, $breakpoints) {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-up($lower, $breakpoints) {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
 
 
 ///// Resonsive Utils
@@ -86,42 +177,6 @@ $breakpoints: join($breakpoints, $newBreakpoints);
 
 
 
-///
-@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
-   @font-face{
-    font-family: $font-family;
-    src        : url('#{$file-path}.eot');
-    src        : url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$font-family}') format('svg');
-    font-weight: $font-weight;
-    font-style : $font-style;
-  }
-  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
-  @media screen and (-webkit-min-device-pixel-ratio: 0) {
-     @font-face{
-      font-family: $font-family;
-      src        : url('#{$file-path}.svg##{$font-family}') format('svg');
-    }
-  }
-}
-
-///
-@mixin font-sizes($fs-map, $fs-breakpoints: $breakpoints) {
-   @each $fs-breakpoint, $fs-font-size in $fs-map{
-    @if $fs-breakpoint == null {
-      font-size: $fs-font-size;
-    }
-    @else {
-      // If $fs-font-size is a key that exists in
-      // $fs-breakpoints, use the value
-      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
-        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
-      }
-      @media screen and (min-width: $fs-breakpoint) {
-        font-size: $fs-font-size;
-      }
-    }
-  }
-}
 
 /// Mixin to customize scrollbars
 /// Beware, this does not work in all browsers
@@ -174,13 +229,7 @@ $breakpoints: join($breakpoints, $newBreakpoints);
   }
 }
 
-/// Font size percentage mixin.
-/// @param {Number} $sizeValue - The font-size
-/// @access public
-@mixin font-size($sizeValue: 1.6) {
-  font-size: ($sizeValue * 10) + px;
-  font-size: $sizeValue + em;
-}
+
 
 /// Clearfix
 /// @access public
@@ -196,21 +245,6 @@ $breakpoints: join($breakpoints, $newBreakpoints);
   }
 }
 
-/// Colors
-/// @example
-/// $values: #ff0000, #00ff00, #0000ff;
-/// .primary {
-///   @include colors($values...);
-///}
-/// $value-map: (text: #00ff00, background: #0000ff, border: #ff0000);
-/// .secondary {
-///   @include colors($value-map...);
-/// }
-@mixin colors($text, $background, $border) {
-  color           : $text;
-  background-color: $background;
-  border          : 1px solid $border;
-}
 
 /// Box Shadows
 /// @access public

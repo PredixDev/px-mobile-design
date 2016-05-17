@@ -404,7 +404,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .a11y-retina,
   .visuallyhidden-retina {
     position: absolute !important;
@@ -416,7 +416,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (max-width: 24rem) {
+@media (max-width: 21.3333333333rem) {
   .a11y-xs,
   .visuallyhidden-xs {
     position: absolute !important;
@@ -428,7 +428,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 25rem) and (max-width: 49.0666666667rem) {
+@media (min-width: 22rem) and (max-width: 49.0666666667rem) {
   .a11y-sm,
   .visuallyhidden-sm {
     position: absolute !important;
@@ -440,7 +440,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 51.2rem) and (max-width: 68.2rem) {
+@media (min-width: 51.2rem) and (max-width: 68.2rem) {
   .a11y-md,
   .visuallyhidden-md {
     position: absolute !important;
@@ -452,7 +452,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 68.2666666667rem) and (max-width: 80rem) {
+@media (min-width: 68.2666666667rem) and (max-width: 80rem) {
   .a11y-lg,
   .visuallyhidden-lg {
     position: absolute !important;
@@ -464,7 +464,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media screen and (min-width: 85.3333333333rem) {
+@media (min-width: 85.3333333333rem) {
   .a11y-xl,
   .visuallyhidden-xl {
     position: absolute !important;
