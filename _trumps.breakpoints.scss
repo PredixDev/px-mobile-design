@@ -32,7 +32,7 @@ $oldBreakpoints: (
 "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
 );
 $newBreakpoints: (
-  "xs" "screen and (max-width: 31rem)",
+  "xs" "screen and (max-width: #{$bp-xs--max})",
   "sm" "screen and (min-width: #{$bp-sm--min}) and (max-width: #{$bp-sm--max})",
   "md" "screen and (min-width: #{$bp-md--min}) and (max-width: #{$bp-md--max})",
   "lg" "screen and (min-width: #{$bp-lg--min}) and (max-width: #{$bp-lg--max})",

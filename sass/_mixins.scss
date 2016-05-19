@@ -1,4 +1,5 @@
 @import 'variables';
+@import "px-functions-design/_tools.functions.scss";
 @import 'mixins/media-query';
 @import 'mixins/bem';
 
@@ -60,7 +61,25 @@ $maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen a
     }
   }
 }
-
+///// Resonsive Utils
+@mixin responsive-utils($bps:$grid_breakpoints) {
+  @content;
+  .is-invisible {
+    visibility: hidden !important;
+  }
+  @each $bp in map-keys($bps) {
+    .is-hidden\@#{$bp}\+ {
+      @include media-breakpoint-up($bp) {
+        display: none !important;
+      }
+    }
+    .is-hidden\@#{$bp}- {
+      @include media-breakpoint-down($bp) {
+        display: none !important;
+      }
+    }
+  }
+}
 @mixin noselect() {
   -webkit-touch-callout: none;
   /* iOS Safari */
