@@ -42,16 +42,15 @@ $modifierSeparator: '--';
   @if containsModifier($selector) {
     $block: getBlock($selector);
     @at-root {
-      #{$selector} {
-        #{$block+$elementSeparator+$element} {
+      #{$selector}{
           @content;
-        }
+        
       }
     }
   }
   @else {
      @at-root{
-      #{$selector+$elementSeparator+$element} {
+      #{$selector+$elementSeparator+$element}{
         @content;
       }
     }
@@ -132,5 +131,16 @@ $modifierSeparator: '--';
 @mixin block($block) {
    @include b($block){
     @content;
+  }
+}
+
+/// Content block - add ::content to selector
+@mixin c($selector){
+  @debug"Adding #{$selector} ::content";
+   @at-root{
+    #{ &} ::content #{$selector},
+    #{ &} #{$selector}{
+      @content;
+    }
   }
 }
