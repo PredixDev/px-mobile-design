@@ -3,6 +3,17 @@
 @import 'mixins/media-query';
 @import 'mixins/bem';
 
+///
+///@access Public
+@mixin var($name,$value) {
+  #{--$name}: $value;
+}
+///
+///@access Public
+@function v($name) {
+  @return var(--#{$name});
+}
+
 //Min breakpoints
 $minBreakpoints: ( "xs" "screen and (min-width: #{$bp-xs--min})", "sm" "screen and (min-width: #{$bp-sm--min})", "md" "screen and (min-width: #{$bp-md--min})", "lg" "screen and (min-width: #{$bp-lg--min})", "xl" "screen and (min-width: #{$bp-xl--min})" );
 //Max breakpoints
