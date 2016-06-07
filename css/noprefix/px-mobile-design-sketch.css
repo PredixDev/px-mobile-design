@@ -414,7 +414,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media (max-width: 21.3333333333rem) {
+@media screen and (max-width: 21.3333333333rem) {
   .a11y-xs,
   .visuallyhidden-xs {
     position: absolute !important;
@@ -426,7 +426,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media (min-width: 22rem) and (max-width: 49.0666666667rem) {
+@media screen and (min-width: 22rem) and (max-width: 49.0666666667rem) {
   .a11y-sm,
   .visuallyhidden-sm {
     position: absolute !important;
@@ -438,7 +438,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media (min-width: 51.2rem) and (max-width: 68.2rem) {
+@media screen and (min-width: 51.2rem) and (max-width: 68.2rem) {
   .a11y-md,
   .visuallyhidden-md {
     position: absolute !important;
@@ -450,7 +450,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media (min-width: 68.2666666667rem) and (max-width: 80rem) {
+@media screen and (min-width: 68.2666666667rem) and (max-width: 80rem) {
   .a11y-lg,
   .visuallyhidden-lg {
     position: absolute !important;
@@ -462,7 +462,7 @@ a {
     padding: 0 !important;
     clip: rect(0 0 0 0) !important; } }
 
-@media (min-width: 85.3333333333rem) {
+@media screen and (min-width: 85.3333333333rem) {
   .a11y-xl,
   .visuallyhidden-xl {
     position: absolute !important;

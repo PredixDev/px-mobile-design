@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "description": "A designs for mobile.",
   "keywords": [
-    "px",
-    "px-mobile"
-  ],
+		"px",
+		"px-mobile"
+	],
   "license": "ISC",
   "author": "Jonnie Spratley",
   "scripts": {
     "postinstall": "bower install",
     "test": "grunt test",
-    "build": "grunt dist",
+    "build": "grunt",
     "watch": "grunt",
     "start": "grunt serve"
   },
