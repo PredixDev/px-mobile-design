@@ -13,5 +13,8 @@ addons:
     - google-chrome
     packages:
     - google-chrome-stable
+before_script:
+- npm install -g grunt-cli
+- export PATH=$PWD/node_modules/.bin:$PATH
 script:
 - xvfb-run npm run build
