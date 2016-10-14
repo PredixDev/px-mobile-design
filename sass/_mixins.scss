@@ -18,7 +18,7 @@
 $minBreakpoints: ( "xs" "screen and (min-width: #{$bp-xs--min})", "sm" "screen and (min-width: #{$bp-sm--min})", "md" "screen and (min-width: #{$bp-md--min})", "lg" "screen and (min-width: #{$bp-lg--min})", "xl" "screen and (min-width: #{$bp-xl--min})" );
 //Max breakpoints
 $maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen and (max-width: #{$bp-sm--max})", "md" "screen and (max-width: #{$bp-md--max})", "lg" "screen and (max-width: #{$bp-lg--max})", "xl" "screen and (max-width: #{$bp-xl--max})" ) !default;
-//@debug "px-mobile-designs - $minBreakpoints = #{$minBreakpoints}";
+
 
 
 ///
@@ -43,7 +43,6 @@ $maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen a
 /// @access public
 @import 'inuit-responsive-tools/_tools.responsive.scss';
 @mixin media-breakpoint($media) {
-  @debug"media-breakpoint - #{$media}";
   @include media-query($media){
     @content;
   }

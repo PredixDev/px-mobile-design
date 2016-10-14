@@ -51,7 +51,6 @@ $grid-breakpoints: (
 // Makes the @content apply to the given breakpoint and wider.
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
-  @debug "media-breakpoint-up - #{$name} - (min-width: #{$min})";
   @if $min {
     @media (min-width: $min) {
       @content;
@@ -65,7 +64,6 @@ $grid-breakpoints: (
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
-  @debug "media-breakpoint-down - #{$name} - (max-width: #{$max})";
   @if $max {
     @media (max-width: $max) {
       @content;

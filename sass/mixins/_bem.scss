@@ -44,7 +44,7 @@ $modifierSeparator: '--';
     @at-root {
       #{$selector}{
           @content;
-        
+
       }
     }
   }
@@ -136,7 +136,6 @@ $modifierSeparator: '--';
 
 /// Content block - add ::content to selector
 @mixin c($selector){
-  @debug"Adding #{$selector} ::content";
    @at-root{
     #{ &} ::content #{$selector},
     #{ &} #{$selector}{

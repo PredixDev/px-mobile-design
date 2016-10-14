@@ -39,5 +39,3 @@ $newBreakpoints: (
   "xl" "screen and (min-width: #{$bp-xl--min})" ) !default;
 
 $breakpoints: join($oldBreakpoints, $newBreakpoints);
-
-@debug 'px-mobile-design - $breakpoints = #{$breakpoints}';
