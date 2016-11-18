@@ -1,13 +1,16 @@
 {
   "name": "px-mobile-design",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A designs for mobile.",
   "keywords": [
 		"px",
 		"px-mobile"
 	],
-  "license": "ISC",
   "author": "Jonnie Spratley",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PredixDev/px-mobile-design.git"
+  },
   "scripts": {
     "postinstall": "bower install",
     "test": "grunt test",
