@@ -1,6 +1,6 @@
 {
   "name": "px-mobile-design",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sass styles for Predix UI Mobile components.",
   "authors": [
     "General Electric",
@@ -10,7 +10,6 @@
     ".*",
     "npm-debug.log",
     "gulpfile.js",
-    "sass",
     "bower_components",
     "node_modules",
     "test",
