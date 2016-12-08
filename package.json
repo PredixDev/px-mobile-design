@@ -11,13 +11,6 @@
     "type": "git",
     "url": "https://github.com/PredixDev/px-mobile-design.git"
   },
-  "scripts": {
-    "postinstall": "bower install",
-    "test": "grunt test",
-    "build": "grunt",
-    "watch": "grunt",
-    "start": "grunt serve"
-  },
   "devDependencies": {
     "bower": "*",
     "grunt": "~v0.4.5",
