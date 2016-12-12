@@ -1,6 +1,6 @@
 {
   "name": "px-mobile-design",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Sass styles for Predix UI Mobile components.",
   "authors": [
     "General Electric",
@@ -34,22 +34,22 @@
   ],
   "dependencies": {
     "polymer": "^1.6.0",
-    "px-spacing-design": "^0.3.7",
+    "px-spacing-design": "^0.4.0",
     "inuit-responsive-settings": "^0.1.5",
     "inuit-responsive-tools": "^0.1.3",
-    "px-spacing-responsive-design": "^0.3.7",
-    "px-widths-responsive-design": "^0.3.8",
+    "px-spacing-responsive-design": "^0.4.0",
+    "px-widths-responsive-design": "^0.4.0",
     "px-box-sizing-design": "^0.2.7",
     "px-helpers-design": "^0.3.5",
-    "px-flexbox-design": "^0.3.8",
+    "px-flexbox-design": "^0.4.0",
     "px-colors-design": "^0.2.16",
-    "px-normalize-design": "^0.3.8",
+    "px-normalize-design": "^0.4.0",
     "px-viewport-design": "^0.4.5",
     "inuit-clearfix": "~0.2.2",
-    "px-buttons-design": "^0.4.23",
+    "px-buttons-design": "^1.1.0",
     "px-iconography-design": "^0.3.5",
-    "px-code-design": "^0.2.11",
-    "px-typography-design": "^1.1.7"
+    "px-code-design": "^1.1.0",
+    "px-typography-design": "^1.2.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
