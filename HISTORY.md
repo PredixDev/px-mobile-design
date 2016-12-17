@@ -1,3 +1,7 @@
+v0.2.2
+==================
+* Fix Colors design
+
 v0.2.0
 ==================
 * Updated dependencies

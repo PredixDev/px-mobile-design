@@ -1,6 +1,6 @@
 {
   "name": "px-mobile-design",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Sass styles for Predix UI Mobile components.",
   "authors": [
     "General Electric",
@@ -42,7 +42,7 @@
     "px-box-sizing-design": "^0.2.7",
     "px-helpers-design": "^0.3.5",
     "px-flexbox-design": "^0.4.0",
-    "px-colors-design": "^0.2.16",
+    "px-colors-design": "^0.3.0",
     "px-normalize-design": "^0.4.0",
     "px-viewport-design": "^0.4.5",
     "inuit-clearfix": "~0.2.2",
