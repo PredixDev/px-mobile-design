@@ -7,14 +7,25 @@ branches:
   except:
   - gh-pages
 addons:
-  #firefox: latest
+  firefox: latest
   apt:
     sources:
     - google-chrome
     packages:
     - google-chrome-stable
 before_script:
-- npm install -g grunt-cli
+- npm install bower
 - export PATH=$PWD/node_modules/.bin:$PATH
+- bower install
 script:
-- xvfb-run npm run build
+- echo "This design module has no tests"
+after_success:
+- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then openssl aes-256-cbc -k "$DEPLOYSECRET"
+  -in deploy.enc -out deploy_key -d; fi
+- cd $TRAVIS_BUILD_DIR/scripts
+- chmod 755 ghp.sh
+- "./ghp.sh"
+env:
+  global:
+  - secure: IP1mMerCu9K5iXaBYhT3wJ9tGWkMuvX3E3Bh6iIMb/JWyjRzkSDdUL2lWZobesXLKBa7Vc29BI2FynfwD0/1HO7IDuFifXLIjjj+91U1hwOsc1b/9YR8/e3zjDCTyPF9LPtUyc5p1JAwvcX6JSgP8qHWij8YGax+UnGJCromtAA/zLJlvJW54lT16WEtTWdupYDK+ESVLwn1/mRsGaUHU5vtKFmbSekKWVnSi+nurdFQyjCup4XuxdZ68fZchpuYYxTka3SnhuVDuBz9cBQaSWnE9MnppFpuTknz4bLsvMdGAqiAr9n1+HVzQR9/PgAeGQn3/lN96SjXG22Uj8Sqp4RagQG7JTYcajVaPmxHOGHQ51wmc0QwJC3UpAYtdcaSHPRCts7KP1u5rW1znC6AcABKJ6uDVcRRGZGBq8r/gwd0FYRtQaixFEzQkFBwnXnkUU/tk9F0FETSytmcWk2007SNKdMmj4MYIh7a3O/PxNmlKzOWV9C06XrM8XfPGetItCIqx8Ignkp+gwhqlbVtm8yCb+8JeXjb6phTgIya+9XmJWqiJnNBqUcEwHlQ2dJrLrkerv7fVKiBaK2yNSaEHoRiG9aaji9E4cUdi8FfGsP/3/I4GJh3gFxcbYftwrjW15YSRt7k4tcSprqSaTzEIudnyjDcirbK9uIW/LPIY/U=
+  - secure: Rv3GDcrPF9KW6DAHKqmRWpTB5JxtEgIKtx1FJBGRNbkNQkiPVAUhoDexnhJXXkzGdKoJzgRTym6oQLvuhi4YrtdXf2n0TK1f4jAPZHkyY60R2MFR75jWlSd4eC3iwXWVw2e6XvzWy5N/ZNM8IGUvmLxDzRfsriRDwpskEtC4VDXsfk77L2FAkidNNMtQC9T+txhJ0VRm40kaAUq0z/DeUm0O6kx2sGUUk4wVhjjYSOEtXftKKWMv4E8a9IQDkw/7S8sEW+CljX0uIli7hXqs6kdIRFWmGxYo7aS/17ri4tHQuQKm223HHzDcAaSeDIbONfkyBLbPtkhNUOBfZhSUs375IbNiIEDQjKNzvV6c8s1H5uhTDmKQpSjkNRq4M2FbyVzRR3Q2MKsVWsZBGZcNi9o4ewYxkNyVsYb4AWS/VsH+I5HveeGR9F+ncxqsIUUzH2aUt9eBf+3df8EaHtCRyd8KKvHZjG++5z369B8UIqUU1y1xAXppcBsyGiwDFHaHEeN4JypPYxlNfqn0AMWI2bt8zFHEWVffGrMpuyKp3h4RVb4hLoZ943e6GPgxtb5AVdXkXLGTk2pB4Hssu9nGhVxoiPhTFye/OZ9NrlMql3SEFD6bRCasGkrHYSS1nCK0CJjryxTiaw/OTGFEZw/My5ZRV/fQkLsw2qfzAPLjTY8=
