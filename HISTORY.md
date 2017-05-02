@@ -1,3 +1,7 @@
+v1.0.0
+==================
+* updated dependencies for redesign
+
 v0.2.4
 ==================
 * updated dependencies
