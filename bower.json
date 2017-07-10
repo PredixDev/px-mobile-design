@@ -51,5 +51,8 @@
     "px-code-design": "^2.0.0",
     "px-typography-design": "^2.0.0",
     "px-clearfix-design": "^1.0.0"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.7.24"
   }
 }
