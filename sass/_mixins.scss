@@ -41,7 +41,7 @@ $maxBreakpoints: ( "xs" "screen and (max-width: #{$bp-xs--max})", "sm" "screen a
 ///     }
 ///   }
 /// @access public
-@import 'inuit-responsive-tools/_tools.responsive.scss';
+@import 'px-helpers-design/_generic.helpers.scss';
 @mixin media-breakpoint($media) {
   @include media-query($media){
     @content;

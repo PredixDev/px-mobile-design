@@ -142,7 +142,7 @@ img {
 // ------------------------------------------
 .u-color--primary,
 a.u-color--primary {
-  color: $primary-blue !important;
+  color: $primary-default !important;
 }
 
 .u-color--alt,
@@ -162,22 +162,22 @@ a.u-color--light {
 
 .u-color--green,
 a.u-color--green {
-  color: $green !important;
+  color: $green3 !important;
 }
 
 .u-color--red,
 a.u-color--red {
-  color: $red !important;
+  color: $red3 !important;
 }
 
 .u-color--blue,
 a.u-color--blue {
-  color: $blue;
+  color: $blue3;
 }
 
 .u-color--yellow,
 a.u-color--yellow {
-  color: $yellow;
+  color: $yellow3;
 }
 
 .u-color--white,
